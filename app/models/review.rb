@@ -18,9 +18,9 @@ class Review < ApplicationRecord
 
   def get_metrics
     review_metrics = ReviewMetric.where(:review_id => self.id)
-    metrics = []
+    metrics = {}
     review_metrics.each do |review_metric|
-      metrics.append(Metric.find(id=review_metric.metric_id))
+      metrics[Metric.find(id=review_metric.metric_id)] = review_metric.rating
     end
     return metrics
   end
