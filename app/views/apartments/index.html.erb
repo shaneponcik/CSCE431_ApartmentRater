@@ -12,7 +12,7 @@
   <tbody>
     <% @apartments.each do |apartment| %>
       <tr>
-        <td><%= "#{apartment}, # of reviews: #{apartment.review_count}" %></td>
+        <td><%= "#{apartment.name} (#{apartment.review_count} reviews)" %></td>
         <td><%= link_to 'Show', apartment%></td>
         <td><%= link_to 'Edit', edit_apartment_path(apartment) %></td>
         <td><%= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' } %></td>

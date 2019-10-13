@@ -10,6 +10,9 @@ class ApartmentsController < ApplicationController
   # GET /apartments/1
   # GET /apartments/1.json
   def show
+    id = params[:id]
+    @apartment = Apartment.find_by_id(id)
+    @reviews = Review.where(:apartment_id => id)
   end
 
   # GET /apartments/new
