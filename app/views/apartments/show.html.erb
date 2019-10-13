@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h2><%= "#{@apartment.name}" %></h2>
+<hr>
+
+<%@reviews.each do |review| %>
+  <h3><%= "#{review.review_text}" %></h3>
+  <h4>Amenities</h4>
+  <% review.get_amenities.each do |amenity| %>
+      <p><%= "#{amenity.name}" %></p>
+  <%end %>
+  <h4>Tags</h4>
+  <% review.get_tags.each do |tag| %>
+    <p><%= "#{tag.name}" %></p>
+  <%end %>
+  <h4>Metrics</h4>
+  <% review.get_metrics.each do |metric_key, metric_value| %>
+    <p><%= "#{metric_key.name}: #{metric_value}" %></p>
+  <%end %>
+  <hr>
+<% end %>
+
+<%= link_to 'Edit', edit_apartment_path(@apartment) %> |
+<%= link_to 'Back', apartments_path %>
