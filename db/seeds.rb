@@ -32,9 +32,9 @@
 
     users = User.create(
         [
-            {email:"s.poncik@tamu.edu",password:"testpw",verified:true},
-            {email:"cmainard@gmail.com",password:"ex",verified:false},
-            {email: "jhann@blinn.edu", password:"jhann", verified:true}])
+            {email:"s.poncik@tamu.edu",password_digest:"testpw"},
+            {email:"cmainard@gmail.com",password_digest:"ex"},
+            {email: "jhann@blinn.edu", password_digest:"jhann"}])
 
     apartments = Apartment.create(
         [
