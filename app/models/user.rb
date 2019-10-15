@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  def get_reviews
-    return Review.where(:user_id => self.id)
-  end
+  has_secure_password
+  validates :email, presence: true, uniqueness: true
+
 end
