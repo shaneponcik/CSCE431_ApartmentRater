@@ -1,0 +1,2 @@
+class ReviewMetric < ApplicationRecord
+end
