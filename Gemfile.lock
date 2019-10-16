@@ -58,10 +58,14 @@ GEM
       zeitwerk (~> 2.1, >= 2.1.8)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    autoprefixer-rails (9.6.5)
+      execjs
     bcrypt (3.1.13)
     bindex (0.8.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
+    bootstrap-sass (3.2.0.4)
+      sass (~> 3.2)
     builder (3.2.3)
     byebug (11.0.1)
     capybara (3.29.0)
@@ -77,6 +81,7 @@ GEM
     crass (1.0.4)
     erubi (1.9.0)
     erubis (2.7.0)
+    execjs (2.7.0)
     ffi (1.11.1)
     ffi (1.11.1-x64-mingw32)
     globalid (0.4.2)
@@ -218,8 +223,10 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  autoprefixer-rails
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.2)
+  bootstrap-sass (~> 3.2.0)
   byebug
   capybara (>= 2.15)
   haml-rails (~> 2.0)
