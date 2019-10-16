@@ -1,0 +1,6 @@
+
+
+
+%select{:id=>"selectbox", :name=>"", :onchange=>"javascript:location.href = this.value;"}
+  -@apartments.each do |apartment|
+    %option{:value => "/apartments/#{apartment.id}"}="#{apartment.name}"
