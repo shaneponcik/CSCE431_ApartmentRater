@@ -27,8 +27,6 @@ gem "rspec-rails"
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 
-gem "rspec"
-
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -57,6 +55,7 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'database_cleaner'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

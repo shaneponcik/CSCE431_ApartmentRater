@@ -98,3 +98,21 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+#should reset test db after rspec runs
+RSpec.configure do |config|
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
+end
