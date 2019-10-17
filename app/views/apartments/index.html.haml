@@ -1,24 +1,28 @@
-%p#notice= notice
-
 =render :partial => "/partials/loginbutton"
+=render :partial => "partials/header"
 
-%h1 Apartments
+//middle grey bar in loFi
+%div{:class => "container"}
+  %div{:class => "row", :style => "text-align: center"}
+    %div{:class => "col-xs-4"}
+      = render :partial => "/partials/addreviewbutton"
+    %div{:class => "col-xs-4"}
+      = render :partial => "searchbar"
+    %div{:class => "col-xs-4"}
+      = render :partial => "/partials/showpreviousreviews"
 
-= render :partial => "/partials/addreviewbutton"
-= render :partial => "/partials/showpreviousreviews"
-= render :partial => "searchbar"
+%hr
 
+%div{:class => "container"}
+-@apartments.each do |apartment|
+  %div{:class => "row"}
+  %div{:class => "col-xs-3"}
+    %img{:src => "/assets/stock_apartment.jpg", :class=>"img-thumbnail" }
+  %div{:class => "col-xs-9"}
+    %br
+    %p= "#{apartment.name}"
+    %p= "#{apartment.review_count} review(s) available."
+    %p= link_to 'Show More', apartment
+    %p= link_to 'Edit', edit_apartment_path(apartment)
+    %p= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' }
 
-%table
-  %thead
-    %tr
-      %th{:colspan => "3"}
-  %tbody
-    - @apartments.each do |apartment|
-      %tr
-        %td= "#{apartment.name} (#{apartment.review_count} reviews)"
-        %td= link_to 'Show', apartment
-        %td= link_to 'Edit', edit_apartment_path(apartment)
-        %td= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New Apartment', new_apartment_path
