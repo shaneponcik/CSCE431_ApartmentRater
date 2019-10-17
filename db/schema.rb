@@ -12,6 +12,24 @@
 
 ActiveRecord::Schema.define(version: 2019_10_13_203228) do
 
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "apartment_id"
+    t.integer "user_id"
+    t.text "review_text"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["apartment_id"], name: "index_reviews_on_apartment_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "amenities", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -29,15 +47,6 @@ ActiveRecord::Schema.define(version: 2019_10_13_203228) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "review_amenities", force: :cascade do |t|
-    t.integer "amenity_id"
-    t.integer "review_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["amenity_id"], name: "index_review_amenities_on_amenity_id"
-    t.index ["review_id"], name: "index_review_amenities_on_review_id"
   end
 
   create_table "review_metrics", force: :cascade do |t|
@@ -59,28 +68,20 @@ ActiveRecord::Schema.define(version: 2019_10_13_203228) do
     t.index ["tag_id"], name: "index_review_tags_on_tag_id"
   end
 
-  create_table "reviews", force: :cascade do |t|
-    t.integer "apartment_id"
-    t.integer "user_id"
-    t.text "review_text"
+  create_table "review_amenities", force: :cascade do |t|
+    t.integer "amenity_id"
+    t.integer "review_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["apartment_id"], name: "index_reviews_on_apartment_id"
-    t.index ["user_id"], name: "index_reviews_on_user_id"
+    t.index ["amenity_id"], name: "index_review_amenities_on_amenity_id"
+    t.index ["review_id"], name: "index_review_amenities_on_review_id"
   end
+
 
   create_table "tags", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "email"
-    t.string "password_digest"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "review_amenities", "amenities"
