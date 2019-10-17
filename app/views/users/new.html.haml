@@ -1,7 +1,8 @@
 %h1 New user
 
 - if flash[:notice]
-  %p#notice= flash[:notice]
+  %div#message
+    %p#notice= flash[:notice]
 
 = render 'form'
 
