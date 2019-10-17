@@ -24,15 +24,22 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
+    if user_params["email"].include? "@tamu.edu" or user_params["email"].include? "@blinn.edu"
+      @user = User.new(user_params)
 
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @user.save
+          format.html { redirect_to @user, notice: 'User was successfully created.' }
+          format.json { render :show, status: :created, location: @user }
+        else
+          format.html { render :new }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
+      end
+    else
+      respond_to do |format|
+        flash[:notice] = "Please use a Tamu or Blinn email."
+        format.html { redirect_to action: "new"}
       end
     end
   end
