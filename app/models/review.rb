@@ -26,7 +26,7 @@ class Review < ApplicationRecord
   end
 
   def get_tags
-    review_tags = ReviewTag.where(:tag_id => self.id)
+    review_tags = ReviewTag.where(:review_id => self.id)
     tags = []
     review_tags.each do |review_tag|
       tags.append(Tag.find(id=review_tag.tag_id))
