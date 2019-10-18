@@ -37,4 +37,9 @@ class Review < ApplicationRecord
     end
     return tags
   end
+
+  def self.get_reviews_for_user(user_id)
+    return where(:user_id => user_id)
+  end
+
 end
