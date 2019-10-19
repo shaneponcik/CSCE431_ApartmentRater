@@ -1,15 +1,18 @@
-%p#notice= notice
-%h1 Reviews
+%h1= "Reviews"
+
 %table
   %thead
     %tr
       %th{:colspan => "3"}
   %tbody
-    - @reviews.each do |review|
-      %tr
-        %td= "Review for #{review.get_apartment.name} by #{review.get_user.email}"
-        %td= link_to 'Show', review
-        %td= link_to 'Edit', edit_review_path(review)
-        %td= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' }
+    - if @review.present?
+      - @review.each do |review|
+        %tr
+          %td= "Review for #{review.get_apartment.name} by #{review.get_user.email}"
+          %td= link_to 'Show', review
+          -# %td= link_to 'Edit', edit_review_path(review)
+          -# %td= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' }
+    -else
+      %p= "Nothing to see here"
 %br/
 = link_to 'New Review', new_review_path

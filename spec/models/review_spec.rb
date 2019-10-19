@@ -56,3 +56,15 @@ describe Apartment, "#get_tags" do
     expect(rev.get_tags.size).to eq 2
   end
 end
+
+describe Review, "#get_reviews_for_user" do
+  it "gets the reviews associated with a user" do
+    user = User.create(:email => "test@tamu.edu", :password_digest => "12345")
+    user2 = User.create(:email => "test1@tamu.edu", :password_digest => "23456")
+    apt = Apartment.create(:name => "apt1")
+    rev1 = Review.create(:user_id => user.id, :review_text => "text", :apartment_id => apt.id)
+    rev2 = Review.create(:user_id => user.id, :review_text => "text1", :apartment_id => apt.id)
+    rev3 = Review.create(:user_id => user2.id, :review_text => "text2", :apartment_id => apt.id)
+    expect(Review.get_reviews_for_user(user.id).size).to eq 2
+  end
+end
