@@ -12,7 +12,7 @@ class ApartmentsController < ApplicationController
   def show
     id = params[:id]
     @apartment = Apartment.find_by_id(id)
-    @reviews = Apartment.get_reviews
+    @reviews = Review.where(:apartment_id => id)
   end
 
   # GET /apartments/new
