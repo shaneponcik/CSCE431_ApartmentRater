@@ -65,6 +65,6 @@ describe Review, "#get_reviews_for_user" do
     rev1 = Review.create(:user_id => user.id, :review_text => "text", :apartment_id => apt.id)
     rev2 = Review.create(:user_id => user.id, :review_text => "text1", :apartment_id => apt.id)
     rev3 = Review.create(:user_id => user2.id, :review_text => "text2", :apartment_id => apt.id)
-    expect(rev1.get_reviews_for_user(user.id).size).to eq 2
+    expect(Review.get_reviews_for_user(user.id).size).to eq 2
   end
 end
