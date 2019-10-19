@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
   # GET /reviews
   # GET /reviews.json
   def index
+    @user = User.where(:id => session[:user_id]).first().email
     @review = Review.get_reviews_for_user(session[:user_id])
   end
 
