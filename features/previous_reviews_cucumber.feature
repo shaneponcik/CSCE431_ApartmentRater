@@ -6,16 +6,18 @@ Feature: See Previous Reviews Made
   Background: Start from the homepage and create a new account and then login
     When I am on the homepage
     And I click on Sign Up
-    Then I fill out the form and submit it
-    Then I go back to the homepage
+    And I fill out the form and submit it
+    And I go back to the homepage
     And I click on Login
-    Then I login to the website the new account
+    And I login to the website the new account
 
   Scenario: Reviews should show when a user has reviews
-    When I click on Show Previous Reviews Made as a User with reviews
+    Given I am a user that has made reviews
+    When I click on Show Previous Reviews Made
     Then I should see the reviews for the current user
 
   Scenario: Should see a message that says there are no reviews when a user has no reviews
-    When I click on Show Previous Reviews Made as a User with no reviews
+    Given I am a user that has made no reviews
+    When I click on Show Previous Reviews Made
     Then I should see a message that says there are no reviews
 
