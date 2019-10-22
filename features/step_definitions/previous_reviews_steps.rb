@@ -7,8 +7,8 @@ And(/^I click on Sign Up$/) do
 end
 
 And(/^I fill out the form and submit it$/) do
-  fill_in('email', with: 'user1@tamu.edu')
-  fill_in('password', with: '12345')
+  fill_in('user_email', with: 'user1@tamu.edu')
+  fill_in('user_password', with: '12345')
   click_button('Save')
 end
 
@@ -48,4 +48,17 @@ end
 
 Then(/^I should see a message that says there are no reviews$/) do
   expect(page).to have_text("No reviews here... Why don't you go make one below ;)")
+end
+
+When(/^I have logged out$/) do
+  click_link('Log Out')
+end
+
+Then(/^I should not see the link for the previous reviews$/) do
+  expect(page).not_to have_text('Show Previous Reviews Made')
+end
+
+And(/^I can click on add review$/) do
+  click_link('New Review')
+  expect(page).to have_text('New Review')
 end
