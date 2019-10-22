@@ -18,4 +18,4 @@ Scenario: Trying to login with a user that doesn't exist
   When I click on Log In
   Then I should be on the Log In page
   When I fill out the form and submit it
-  Then I receive an error and remain on the login page
+  Then I should receive an error and remain on the login page
