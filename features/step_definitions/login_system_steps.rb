@@ -21,7 +21,7 @@ Then(/^I should be on the Log In page$/) do
   expect(page).to have_text('Login')
 end
 
-When(/^I fill out the form and submit it$/) do
+When(/^I fill out the login form and submit it$/) do
   fill_in('email', with: 'user1@tamu.edu')
   fill_in('password', with: '12345')
   click_button('Login')

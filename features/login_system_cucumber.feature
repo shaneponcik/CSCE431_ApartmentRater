@@ -11,11 +11,11 @@ Scenario: Trying to login with an established user
   And I am back on the homepage
   When I click on Log In
   Then I should be on the Log In page
-  When I fill out the form and submit it
+  When I fill out the login form and submit it
   Then I should be successful and redirected back to the homepage
 
 Scenario: Trying to login with a user that doesn't exist
   When I click on Log In
   Then I should be on the Log In page
-  When I fill out the form and submit it
+  When I fill out the login form and submit it
   Then I should receive an error and remain on the login page
