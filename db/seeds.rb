@@ -61,8 +61,15 @@
         review_metrics = ReviewMetric.create(
             [
                 {review_id:1,metric_id:1,rating:5},
-                {review_id:1,metric_id:2,rating: 2}])
-                {review_id:2,metric_id:3,rating: 4}
+                {review_id:1,metric_id:2,rating: 2},
+                {review_id:2,metric_id:3,rating: 4}])
+
+        admin_table = AdminTable.create(
+            [
+                {user_id: 1}
+            ]
+        )
+
 
 
 
