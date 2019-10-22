@@ -33,7 +33,7 @@
     users = User.create(
         [
             {email:"s.poncik@tamu.edu",password_digest:"testpw"},
-            {email:"cmainard@gmail.com",password_digest:"ex"},
+            {email:"cmainard@tamu.edu",password_digest:"ex"},
             {email: "jhann@blinn.edu", password_digest:"jhann"}])
 
     apartments = Apartment.create(
@@ -64,12 +64,11 @@
                 {review_id:1,metric_id:2,rating: 2},
                 {review_id:2,metric_id:3,rating: 4}])
 
-        admin_table = AdminTable.create(
-            [
-                {user_id: 1}
-            ]
-        )
-
+    admin_table = AdminTable.create(
+        [
+            {user_id: 1}
+        ]
+    )
 
 
 
