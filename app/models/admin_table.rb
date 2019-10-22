@@ -1,0 +1,2 @@
+class AdminTable < ApplicationRecord
+end
