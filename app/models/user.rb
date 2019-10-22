@@ -7,6 +7,7 @@ class User < ApplicationRecord
       return true
     else
       return false
+      #
     end
   end
 end
