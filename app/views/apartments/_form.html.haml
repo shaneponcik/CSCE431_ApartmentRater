@@ -1,11 +1,13 @@
-= form_with(model: apartment, local: true) do |form|
-  - if apartment.errors.any?
+= form_for @apartment do |f|
+  - if @apartment.errors.any?
     #error_explanation
-      %h2
-        = pluralize(apartment.errors.count, "error")
-        prohibited this apartment from being saved:
+      %h2= "#{pluralize(@apartment.errors.count, "error")} prohibited this apartment from being saved:"
       %ul
-        - apartment.errors.full_messages.each do |message|
+        - @apartment.errors.full_messages.each do |message|
           %li= message
+
+  .field
+    = f.label :name
+    = f.text_field :name
   .actions
-    = form.submit
+    = f.submit 'Save'
