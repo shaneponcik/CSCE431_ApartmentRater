@@ -1,7 +1,3 @@
-And(/^I click on Sign Up$/) do
-  click_link('Sign Up')
-end
-
 When(/^I fill out the signup form and submit it$/) do
   fill_in('user_email', with: 'user1@tamu.edu')
   fill_in('user_password', with: '12345')
