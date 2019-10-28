@@ -32,7 +32,7 @@ When(/^I don't fill out the new apartment form$/) do
 
 end
 
-Then(/^I should see a failure message$/) do
+Then(/^I should see a failure message for apartments$/) do
   expect(page).to have_text('prohibited this apartment from being saved:')
 end
 
