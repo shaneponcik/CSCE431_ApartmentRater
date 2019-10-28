@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :apartments
   resources :reviews
   resources :users
-  resources :tag
+  resources :tags
 
   get 'sessions/new'
   get 'sessions/create'
