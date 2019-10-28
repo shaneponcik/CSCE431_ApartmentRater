@@ -27,7 +27,6 @@ class ApartmentsController < ApplicationController
   # POST /apartments
   # POST /apartments.json
   def create
-    puts(apartment_params)
     @apartment = Apartment.new(apartment_params)
 
     respond_to do |format|
