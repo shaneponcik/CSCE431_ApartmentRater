@@ -1,7 +1,3 @@
-Given(/^I am on the homepage$/) do
-  visit root_path
-end
-
 Given(/^I have created a new user$/) do
   click_link('Sign Up')
   fill_in('user_email', with: 'user1@tamu.edu')
