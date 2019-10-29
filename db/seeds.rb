@@ -16,6 +16,7 @@
 
     metrics = Metric.create(
         [
+            {name:"Overall"},
             {name:"Transportation"},
             {name:"Noise"},
             {name:"Management"},
