@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_10_165009) do
+ActiveRecord::Schema.define(version: 2019_10_22_180653) do
+
+  create_table "admin_tables", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_admin_tables_on_user_id"
+  end
 
   create_table "amenities", force: :cascade do |t|
     t.string "name"
@@ -83,6 +90,7 @@ ActiveRecord::Schema.define(version: 2019_10_10_165009) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "admin_tables", "users"
   add_foreign_key "review_amenities", "amenities"
   add_foreign_key "review_amenities", "reviews"
   add_foreign_key "review_metrics", "metrics"
