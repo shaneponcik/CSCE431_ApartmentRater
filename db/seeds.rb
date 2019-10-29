@@ -12,10 +12,11 @@
             {name:"Game Room"},
             {name:"Lounge"},
             {name:"Study Area"},
-            {name: "Pet Park"}])
+            {name:"Pet Park"}])
 
     metrics = Metric.create(
         [
+            {name:"Overall"},
             {name:"Transportation"},
             {name:"Noise"},
             {name:"Management"},
