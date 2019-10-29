@@ -19,4 +19,5 @@ Scenario: Create a new apartment
 Scenario: Fill out the new apartment form with a blank name
   When I don't fill out the new apartment form
   And Submit the form
-  Then I should see a failure message
+  Then I should see a failure message for apartments
+  And I should see that the name shouldn't be blank
