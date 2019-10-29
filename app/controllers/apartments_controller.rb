@@ -27,6 +27,7 @@ class ApartmentsController < ApplicationController
   # POST /apartments
   # POST /apartments.json
   def create
+    puts(apartment_params)
     @apartment = Apartment.new(apartment_params)
 
     respond_to do |format|
@@ -72,6 +73,6 @@ class ApartmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def apartment_params
-      params.fetch(:apartment, {})
+      params.require(:apartment).permit(:name)
     end
 end
