@@ -26,7 +26,7 @@
   %div{:class => "col-xs-9"}
     %br
     %p= "#{apartment.name}"
-    %p= "#{apartment.review_count} review(s) available."
+    %p= "Average overall rating: #{apartment.average_rating} from #{apartment.review_count} reviews"
     %p= link_to 'Show More', apartment
     %p= link_to 'Edit', edit_apartment_path(apartment)
     %p= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' }
