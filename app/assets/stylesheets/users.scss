@@ -1,0 +1,20 @@
+@mixin centerer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+div.field {
+  width:25%;
+  display: -webkit-flex;
+  -webkit-align-items: center;
+  display: flex;
+  align-items: center;
+}
+
+#form div {
+   -webkit-flex: 1;
+   flex: 1;
+}
+
