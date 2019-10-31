@@ -4,7 +4,11 @@ class ReviewsController < ApplicationController
   # GET /reviews
   # GET /reviews.json
   def index
-    @user = User.where(:id => session[:user_id]).first().email
+    @user = User.where(:id => session[:user_id]).first()
+    if @user.nil?
+      return redirect_to root_path
+    end
+    @email = @user.email
     @review = Review.get_reviews_for_user(session[:user_id])
   end
 
