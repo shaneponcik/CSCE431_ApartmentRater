@@ -100,7 +100,7 @@ class ReviewsController < ApplicationController
     review_selected_metrics = ReviewMetric.where(:review_id => params[:id])
     @review_metrics = {}
     Metric.all.each do |metric|
-      if review_selected_metrics.where(:metric_id => metric.id)
+      if review_selected_metrics.where(:metric_id => metric.id).size() > 0
         @review_metrics[metric.id] = review_selected_metrics.where(:metric_id => metric.id).first.rating
       else
         @review_metrics[metric.id] = nil
@@ -108,7 +108,7 @@ class ReviewsController < ApplicationController
     end
 
     #only logged in users can create reviews
-    if current_user
+    if current_user and current_user.id == @review.user_id
       @current_user = current_user.id
     else
       return redirect_to root_path
@@ -197,20 +197,26 @@ class ReviewsController < ApplicationController
   # DELETE /reviews/1.json
   def destroy
     review_id = params[:id]
-    ReviewAmenity.where(:review_id => review_id).each do |f|
-      f.destroy
-    end
-    ReviewTag.where(:review_id => review_id).each do |f|
-      f.destroy
-    end
-    ReviewMetric.where(:review_id => review_id).each do |f|
-      f.destroy
-    end
-    #have to destroy all bridge tables first since they have FK on review
-    Review.find(review_id).destroy
-    respond_to do |format|
-      format.html { redirect_to reviews_url, notice: 'Review was successfully destroyed.' }
-      format.json { head :no_content }
+    @review = Review.find(review_id)
+
+    if current_user and current_user.id == @review.user_id
+      ReviewAmenity.where(:review_id => review_id).each do |f|
+        f.destroy
+      end
+      ReviewTag.where(:review_id => review_id).each do |f|
+        f.destroy
+      end
+      ReviewMetric.where(:review_id => review_id).each do |f|
+        f.destroy
+      end
+      #have to destroy all bridge tables first since they have FK on review
+      Review.find(review_id).destroy
+      respond_to do |format|
+        format.html { redirect_to reviews_url, notice: 'Review was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+      return redirect_to root_path
     end
   end
 
