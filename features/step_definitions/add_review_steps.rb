@@ -2,12 +2,9 @@ Given(/^I am logged in$/) do
   click_link('Sign Up')
   fill_in('user_email', with: 'user1@tamu.edu')
   fill_in('user_password', with: '12345')
-  click_button('Save')
+  fill_in('user_vPassword', with: '12345')
+  click_button('Create Account')
   visit root_path
-  click_link('Log In')
-  fill_in('email', with: 'user1@tamu.edu')
-  fill_in('password', with: '12345')
-  click_button('Login')
 end
 
 Given(/^I am not logged in$/)do

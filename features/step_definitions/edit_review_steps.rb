@@ -9,8 +9,6 @@ When(/^I attempt to edit any review$/)do
   new_apt.save
   new_rev = Review.new
   new_rev.review_text = "123"
-  puts(current_user)
-  puts(new_apt)
   new_rev.user_id = current_user.id
   new_rev.apartment_id = new_apt.id
   new_rev.save
