@@ -6,10 +6,12 @@
       %th
       %th
       %th
+      %th
 
   %tbody
     - @amenities.each do |amenity|
       %tr
+        %td= amenity.name
         %td= link_to 'Show', amenity
         %td= link_to 'Edit', edit_amenity_path(amenity)
         %td= link_to 'Destroy', amenity, method: :delete, data: { confirm: 'Are you sure?' }
@@ -17,3 +19,4 @@
 %br
 
 = link_to 'New Amenity', new_amenity_path
+= link_to 'Home Page', root_path

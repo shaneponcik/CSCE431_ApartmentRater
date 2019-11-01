@@ -69,6 +69,6 @@ class AmenitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def amenity_params
-      params.fetch(:amenity, {})
+      params.require(:amenity).permit(:name)
     end
 end
