@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :reviews
   resources :users
   resources :tags
+  resources :amenities
 
   get 'sessions/new'
   get 'sessions/create'
