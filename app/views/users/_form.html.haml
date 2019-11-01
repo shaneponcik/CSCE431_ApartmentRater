@@ -5,12 +5,23 @@
       %ul
         - @user.errors.full_messages.each do |message|
           %li= message
-
-  .field
-    = f.label :email
-    = f.text_field :email
-  .field
-    = f.label :password
-    = f.password_field :password
+  %div#form
+    .field
+      %div
+        = f.label :email
+      %div
+        = f.text_field :email
+  %div#form
+    .field
+      %div
+        = f.label :password
+      %div
+        = f.password_field :password
+  %div#form
+    .field
+      %div
+        = f.label "Verify Password"
+      %div
+        = f.password_field :vPassword
   .actions
-    = f.submit 'Save'
+    = f.submit 'Create Account'

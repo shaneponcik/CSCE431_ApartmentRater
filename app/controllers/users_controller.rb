@@ -24,24 +24,38 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    if user_params["email"].include? "@tamu.edu" or user_params["email"].include? "@blinn.edu"
-      @user = User.new(user_params)
+    if verifyInput(user_params)
+      @user = User.new(email: user_params["email"], password: user_params["password"], password_confirmation: user_params["password_confirmation"])
 
       respond_to do |format|
         if @user.save
-          format.html { redirect_to @user, notice: 'User was successfully created.' }
-          format.json { render :show, status: :created, location: @user }
+          session[:user_id] = @user.id
+          format.html { redirect_to root_url, notice: "Logged in!" }
         else
           format.html { render :new }
           format.json { render json: @user.errors, status: :unprocessable_entity }
+          flash[:notice] = "Error creating account."
+          print("Error Creating User")
+          format.html { redirect_to action: "new"}
         end
       end
     else
       respond_to do |format|
-        flash[:notice] = "Please use a Tamu or Blinn email."
         format.html { redirect_to action: "new"}
       end
     end
+  end
+
+  def verifyInput params
+    if not (params["email"].include? "@tamu.edu" or params["email"].include? "@blinn.edu")
+      flash[:notice] = "Please use a Tamu or Blinn email."
+      return false
+    end
+    if params["password"] != params["vPassword"]
+      flash[:notice] = "Passwords do not match."
+      return false
+    end
+    return true
   end
 
   # PATCH/PUT /users/1
@@ -76,6 +90,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation)
+      params.require(:user).permit(:email, :password, :vPassword, :password_confirmation)
     end
 end
