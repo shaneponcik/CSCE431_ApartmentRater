@@ -9,5 +9,5 @@ Then(/^I should see the search bar for apartments$/)do
 end
 
 Then(/^I should see all the apartments$/)do
-  expect(page).to have_text("review(s) available", :minimum => 2)
+  expect(page).to have_text("Add an Apartment")
 end
