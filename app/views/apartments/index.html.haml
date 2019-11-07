@@ -22,7 +22,7 @@
     %div{:class => "col-xs-4"}
       = render :partial => "/partials/addmetricbutton"
     %div{:class => "col-xs-4"}
-      
+
 %hr
 
 %div{:class => "container"}
@@ -32,9 +32,19 @@
     %img{:src => "/assets/stock_apartment.jpg", :class=>"img-thumbnail" }
   %div{:class => "col-xs-9"}
     %br
-    %p= "#{apartment.name}"
+    %a{ :href => "apartments/#{apartment.id}"}
+      %strong
+        %h3= "#{apartment.name}"
     %p= "Average overall rating: #{apartment.average_rating} from #{apartment.review_count} reviews"
-    %p= link_to 'Show More', apartment
-    %p= link_to 'Edit', edit_apartment_path(apartment)
-    %p= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' }
+    %p
+      %strong Description:
+    %p= "#{apartment.description}"
+    %p
+      %strong{ :style => "float:left; padding: 2px;" } Tags:
+      -apartment.get_reviews.each do |review|
+        -review.get_tags.each do |tag|
+          %div.tag{ :style => "float:left;padding: 0px 5px;border-radius: 25px; border: 2px solid #73AD21;" }
+            ="#{tag.name}"
+    -# %p= link_to 'Edit', edit_apartment_path(apartment)
+    -# %p= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' }
 
