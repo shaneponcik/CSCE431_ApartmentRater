@@ -5,11 +5,11 @@ class Apartment < ApplicationRecord
     reviews = Review.where(:apartment_id => self.id)
     return reviews
   end
-  
+
   def review_count
     return Review.where(:apartment_id => self.id).size
   end
-  
+
   def average_rating
     avgRating = 0;
     reviewCount = 0;
@@ -28,5 +28,15 @@ class Apartment < ApplicationRecord
     avgRating = avgRating / reviewCount;
     return avgRating
   end
-  
+
+  def get_tags
+    hash = {}
+
+    get_reviews.each do |review|
+      review.get_tags.each do |tag|
+          hash[tag.name] = (hash[tag.name] || 0) + 1
+      end
+    end
+    return hash
+  end
 end

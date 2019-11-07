@@ -41,10 +41,9 @@
     %p= "#{apartment.description}"
     %p
       %strong{ :style => "float:left; padding: 2px;" } Tags:
-      -apartment.get_reviews.each do |review|
-        -review.get_tags.each do |tag|
-          %div.tag{ :style => "float:left;padding: 0px 5px;border-radius: 25px; border: 2px solid #73AD21;" }
-            ="#{tag.name}"
+      -apartment.get_tags.each do |tag, count|
+        %div.tag{ :style => "float:left;padding: 0px 5px;border-radius: 25px; border: 2px solid #73AD21;margin-left: 2px;" }
+          ="#{tag} #{count}"
     -# %p= link_to 'Edit', edit_apartment_path(apartment)
     -# %p= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' }
 
