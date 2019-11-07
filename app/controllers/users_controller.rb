@@ -84,15 +84,15 @@ class UsersController < ApplicationController
   
   def admin_portal
     respond_to do |format|
-      if @user.is_admin
-        #if the user is an admin, let them see the page
-        format.html { redirect_to 'sessions/show_admin', notice: 'Admin priviledges in use. '}
-        format.json { render :show, status: :ok, location: @user }
-      else
-        #if the user is not an admin, politely inform them they are a technological pleb
-        format.html { redirect_to root_url, notice: 'You have not been granted admin priviledges.' }
-        format.json { head :no_content }
-      end
+    if @user.is_admin
+      #if the user is an admin, let them see the page
+      format.html { redirect_to 'sessions/show_admin', notice: 'Admin priviledges in use. '}
+      format.json { render :show, status: :ok, location: @user }
+    else
+      #if the user is not an admin, politely inform them they are a technological pleb
+      format.html { redirect_to root_url, notice: 'You have not been granted admin priviledges.' }
+      format.json { head :no_content }
+    end
   end
     
   private
@@ -105,4 +105,5 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:email, :password, :vPassword, :password_confirmation)
     end
+  end
 end
