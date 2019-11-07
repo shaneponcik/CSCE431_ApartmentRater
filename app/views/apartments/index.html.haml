@@ -1,4 +1,7 @@
 =render :partial => "/partials/loginbutton"
+- if @user.is_admin
+  "/partials/gotoadmin"
+      
 =render :partial => "partials/header"
 
 //middle grey bar in loFi
@@ -22,7 +25,8 @@
     %div{:class => "col-xs-4"}
       = render :partial => "/partials/addmetricbutton"
     %div{:class => "col-xs-4"}
-      
+
+        
 %hr
 
 %div{:class => "container"}
