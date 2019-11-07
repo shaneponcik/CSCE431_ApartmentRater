@@ -2,7 +2,8 @@ Given(/^I have created a new user$/) do
   click_link('Sign Up')
   fill_in('user_email', with: 'user1@tamu.edu')
   fill_in('user_password', with: '12345')
-  click_button('Save')
+  fill_in('user_vPassword', with: '12345')
+  click_button('Create Account')
 end
 
 And(/^I am back on the homepage$/) do

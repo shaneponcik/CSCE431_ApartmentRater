@@ -3,6 +3,7 @@ class Review < ApplicationRecord
   validates :apartment_id, presence: true
   validates :user_id, presence: true
 
+
   def get_apartment
     return Apartment.find(id=self.apartment_id)
   end

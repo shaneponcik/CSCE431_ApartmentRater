@@ -1,0 +1,22 @@
+%h1 Listing metrics
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+      %th
+
+  %tbody
+    - @metrics.each do |metric|
+      %tr
+        %td= metric.name
+        %td= link_to 'Show', metric
+        %td= link_to 'Edit', edit_metric_path(metric)
+        %td= link_to 'Destroy', metric, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Metric', new_metric_path
+= link_to 'Home Page', root_path

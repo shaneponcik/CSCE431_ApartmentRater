@@ -9,21 +9,13 @@ end
 And(/^I fill out the form and submit it$/) do
   fill_in('user_email', with: 'user1@tamu.edu')
   fill_in('user_password', with: '12345')
-  click_button('Save')
+  fill_in('user_vPassword', with: '12345')
+  click_button('commit')
 end
+
 
 And(/^I go back to the homepage$/) do
   click_link('Back')
-end
-
-And(/^I click on Login$/) do
-  click_link('Log In')
-end
-
-And(/^I login to the website the new account$/) do
-  fill_in('email', with: 'user1@tamu.edu')
-  fill_in('password', with: '12345')
-  click_button('Login')
 end
 
 When(/^I click on Show Previous Reviews Made$/) do

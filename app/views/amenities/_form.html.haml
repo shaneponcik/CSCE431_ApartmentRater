@@ -1,0 +1,13 @@
+= form_for @amenity do |f|
+  - if @amenity.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@amenity.errors.count, "error")} prohibited this amenity from being saved:"
+      %ul
+        - @amenity.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .actions
+    = f.submit 'Save'

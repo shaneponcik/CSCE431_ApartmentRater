@@ -7,9 +7,6 @@ Feature: See Previous Reviews Made
     When I am on the homepage
     And I click on Sign Up
     And I fill out the form and submit it
-    And I go back to the homepage
-    And I click on Login
-    And I login to the website the new account
 
   Scenario: Reviews should show when a user has reviews
     Given I am a user that has made reviews
