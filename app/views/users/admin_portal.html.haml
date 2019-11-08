@@ -1,0 +1,25 @@
+
+%p#notice= notice
+
+-if current_user
+  %p
+    %b Email:
+    = current_user.email
+  %p
+    %b Password:
+    = current_user.password
+
+  = link_to 'Edit', edit_user_path(current_user)
+  \|
+
+  = link_to 'Back', root_path
+  - if current_user.is_admin
+    #admin_options
+      .actions
+        f.submit 'Change user permissions'
+      .actions
+        f.submit 'Delete other user'
+      .actions
+        f.submit 'Delete post of other user'
+      .actions
+        f.submit 'Edit post of other user'
