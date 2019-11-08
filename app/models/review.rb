@@ -5,6 +5,7 @@ class Review < ApplicationRecord
   validates :price, presence: true
 
 
+
   def get_apartment
     return Apartment.find(id=self.apartment_id)
   end
