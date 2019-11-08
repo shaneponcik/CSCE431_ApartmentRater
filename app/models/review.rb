@@ -2,6 +2,7 @@ class Review < ApplicationRecord
   validates :review_text, presence: true
   validates :apartment_id, presence: true
   validates :user_id, presence: true
+  validates :price, presence: true
 
 
   def get_apartment

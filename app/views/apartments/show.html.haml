@@ -1,8 +1,9 @@
 %p#notice= notice
 %h2= "#{@apartment.name}"
-%hr/
+%hr
 - @reviews.each do |review|
-  %h3= "#{review.review_text}"
+  %h4= "Description: #{review.review_text}"
+  %h4= "Price(per person for unit): #{review.price}"
   - review.get_metrics.each do |metric_key, metric_value|
     - if metric_key.name == "Overall"
       %h4= "Overall Rating: #{metric_value}"
@@ -16,7 +17,7 @@
   - review.get_metrics.each do |metric_key, metric_value|
     - if metric_key.name != "Overall"
       %p= "#{metric_key.name}: #{metric_value}"
-  %hr/
+  %hr
 = link_to 'Edit', edit_apartment_path(@apartment)
 |
 = link_to 'Back', apartments_path
