@@ -36,6 +36,7 @@
       %strong
         %h3= "#{apartment.name}"
     %p= "Average overall rating: #{apartment.average_rating} from #{apartment.review_count} reviews"
+    %p= "Pricing: average = $#{apartment.get_average_price}, min = $#{apartment.get_min_price}, max = $#{apartment.get_max_price}"
     %p
       %strong Description:
     %p= "#{apartment.description}"

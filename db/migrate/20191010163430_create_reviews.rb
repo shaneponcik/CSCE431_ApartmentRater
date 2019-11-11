@@ -4,6 +4,7 @@ class CreateReviews < ActiveRecord::Migration[6.0]
       t.references :apartment, index:true, foreign_key:true
       t.references :user, index:true, foreign_key:true
       t.text :review_text
+      t.decimal :price
       t.timestamps
     end
   end
