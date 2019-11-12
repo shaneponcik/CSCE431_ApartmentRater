@@ -1,6 +1,8 @@
 =render :partial => "/partials/loginbutton"
 - if current_user
   =render :partial => "/partials/gotoadmin"
+
+%p#notice= notice
       
 =render :partial => "partials/header"
 
