@@ -1,5 +1,11 @@
 %p#notice= notice
 
+%h1 Create a New Metric
+
+= render 'form'
+
+%br
+
 %h1 Listing metrics
 
 %table{:class => "table"}
@@ -15,12 +21,6 @@
         %td= metric.name
         %td= link_to 'Edit', edit_metric_path(metric)
         %td= link_to 'Delete', metric, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-%h1 Create a New Metric
-
-= render 'form'
 
 %br
 
