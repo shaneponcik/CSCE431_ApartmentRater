@@ -1,9 +1,10 @@
+%p#notice= notice
+
 %h1 Listing metrics
 
-%table
+%table{:class => "table"}
   %thead
     %tr
-      %th
       %th
       %th
       %th
@@ -12,11 +13,15 @@
     - @metrics.each do |metric|
       %tr
         %td= metric.name
-        %td= link_to 'Show', metric
         %td= link_to 'Edit', edit_metric_path(metric)
         %td= link_to 'Destroy', metric, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 
-= link_to 'New Metric', new_metric_path
-= link_to 'Home Page', root_path
+%h1 Create a New Metric
+
+= render 'form'
+
+%br
+
+= link_to 'Back', admin_only_path
