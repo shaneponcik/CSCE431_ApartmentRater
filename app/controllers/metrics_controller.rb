@@ -30,7 +30,7 @@ class MetricsController < ApplicationController
   end
 
   def new
-    redirect_to metrics_path, notice: 'New metrics are created at the bottom of the page'
+    redirect_to metrics_path, notice: 'New metrics are created at the top of the page'
   end
 
   # POST /metrics
