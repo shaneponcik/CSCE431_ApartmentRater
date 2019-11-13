@@ -1,9 +1,15 @@
+%p#notice= notice
+
+%h1 Create a New Tag
+= render 'form'
+
+%br
+
 %h1 Listing tags
 
-%table
+%table{:class => "table"}
   %thead
     %tr
-      %th
       %th
       %th
       %th
@@ -12,11 +18,9 @@
     - @tags.each do |tag|
       %tr
         %td= tag.name
-        %td= link_to 'Show', tag
         %td= link_to 'Edit', edit_tag_path(tag)
-        %td= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Delete', tag, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 
-= link_to 'New Tag', new_tag_path
-= link_to 'Home Page', root_path
+= link_to 'Back', admin_only_path
