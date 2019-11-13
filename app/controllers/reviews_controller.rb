@@ -8,6 +8,8 @@ class ReviewsController < ApplicationController
     if @user.nil?
       return redirect_to root_path
     end
+
+    flash[:back] = 'index'
     @email = @user.email
     @review = Review.get_reviews_for_user(session[:user_id])
   end
@@ -118,6 +120,12 @@ class ReviewsController < ApplicationController
       return redirect_to root_path
     end
     #should be same above as new's
+  end
+
+  def review_list
+    flash[:back] = 'list'
+
+    @reviews = Review.all
   end
 
   # POST /reviews

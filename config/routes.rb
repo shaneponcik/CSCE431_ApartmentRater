@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'apartments#index'
   resources :apartments
   resources :reviews
+  get 'review_list', to: 'reviews#review_list', as: 'review_list'
   resources :users
   resources :tags
   resources :metrics
