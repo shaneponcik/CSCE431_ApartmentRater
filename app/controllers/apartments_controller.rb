@@ -4,6 +4,7 @@ class ApartmentsController < ApplicationController
   # GET /apartments
   # GET /apartments.json
   def index
+    flash[:back] = 'index'
     @apartments = Apartment.all
   end
 
@@ -24,6 +25,14 @@ class ApartmentsController < ApplicationController
   def edit
   end
 
+  def apartment_list
+    flash[:back] = 'list'
+
+    @apartments = Apartment.all
+
+    @apartment = Apartment.new
+  end
+
   # POST /apartments
   # POST /apartments.json
   def create
@@ -31,7 +40,7 @@ class ApartmentsController < ApplicationController
 
     respond_to do |format|
       if @apartment.save
-        format.html { redirect_to @apartment, notice: 'Apartment was successfully created.' }
+        format.html { redirect_to apartment_list_url, notice: 'Apartment was successfully created.' }
         format.json { render :show, status: :created, location: @apartment }
       else
         format.html { render :new }
@@ -45,7 +54,7 @@ class ApartmentsController < ApplicationController
   def update
     respond_to do |format|
       if @apartment.update(apartment_params)
-        format.html { redirect_to @apartment, notice: 'Apartment was successfully updated.' }
+        format.html { redirect_to apartment_list_url, notice: 'Apartment was successfully updated.' }
         format.json { render :show, status: :ok, location: @apartment }
       else
         format.html { render :edit }
@@ -59,7 +68,7 @@ class ApartmentsController < ApplicationController
   def destroy
     @apartment.destroy
     respond_to do |format|
-      format.html { redirect_to apartments_url, notice: 'Apartment was successfully destroyed.' }
+      format.html { redirect_to apartment_list_url, notice: 'Apartment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

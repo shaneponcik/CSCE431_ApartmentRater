@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   #
   root 'apartments#index'
   resources :apartments
+  get 'apartment_list', to: 'apartments#apartment_list', as: 'apartment_list'
   resources :reviews
   get 'review_list', to: 'reviews#review_list', as: 'review_list'
   resources :users
