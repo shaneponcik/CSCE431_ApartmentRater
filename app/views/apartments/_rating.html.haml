@@ -1,0 +1,17 @@
+%link{:href => "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", :rel => "stylesheet"}/
+:css
+  .checked {
+    color: orange;
+  }
+  .star{
+    font-size: x-large;
+  }
+%div
+  %p{:style => "display:inline-block; font-size: large; vertical-align: 50%;"}="-"
+  -if apartment.average_rating != "Undefined"
+    %div{:style => "vertical-align: 10%; display:inline-block"}
+      -for x in 1..apartment.average_rating.ceil(0) do
+        %div.star.checked{:style=>"float:left"}★
+      -for x in 1..(5-apartment.average_rating.ceil(0)) do
+        %div.star{:style=>"float:left"}★
+  %p{:style => "display:inline-block; font-size: large; vertical-align: 55%;"}="(#{apartment.review_count})"
