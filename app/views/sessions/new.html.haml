@@ -8,10 +8,11 @@
     %div{class: "box"}
       = password_field_tag :password, nil, placeholder: "Password"
 
+  = form_tag root_path, :id => 'back', :method => :get do |form|
+    %div
   %div{class: "box"}
+    = submit_tag "Back", form: "back"
     = submit_tag "Login", form: "login"
-  %div{class: "box"}
-    = button_to 'Back', root_path, :method => :get
 
 %div
   -if notice != nil
