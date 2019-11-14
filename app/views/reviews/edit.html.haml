@@ -1,5 +1,5 @@
 %h1 Editing Review
 = render 'form', review: @review
-= link_to 'Show', @review
+= link_to 'Show', @review, data: { confirm: 'Are you sure you want to continue without saving?' }
 |
-= link_to 'Back', reviews_path
+= link_to 'Back', reviews_path, data: { confirm: 'Are you sure you want to continue without saving?' }
