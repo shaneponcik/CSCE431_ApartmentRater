@@ -1,5 +1,12 @@
 %p#notice= notice
 %h2= "#{@apartment.name}"
+- if @apartment.is_close == true
+  %h4= "Close to campus"
+  %h4= "Nearby on-campus buildings: #{@apartment.get_buildings}"
+- else
+  %h4= "Not close to campus"
+%h4= "A&M bus routes nearby: #{@apartment.get_busses}"
+
 %hr/
 - @reviews.each do |review|
   %h3= "#{review.review_text}"
