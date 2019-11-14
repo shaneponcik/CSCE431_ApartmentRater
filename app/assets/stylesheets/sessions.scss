@@ -1,3 +1,79 @@
-// Place all the styles related to the sessions controller here.
-// They will automatically be included in application.scss.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.loginBody{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: #500000;
+}
+.bigbox{
+  width: 25%;
+  padding: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #E8E4DB;
+  text-align: center;
+}
+@media only screen and (max-width : 1050px) {
+  .bigbox{
+    width: 50%;
+  }
+}
+h1{
+  color: #500000;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.box input[type = "text"],.box input[type = "password"]{
+  border:0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #500000;
+  padding: 14px 10px;
+  width: 200px;
+  outline: none;
+  color: #500000;
+  border-radius: 24px;
+  transition: 0.25s;
+}
+.box input[type = "text"]:focus,.box input[type = "password"]:focus{
+  width: 280px;
+  border-color: white;
+  color: white;
+  background: #500000;
+}
+.box input[type = "submit"]{
+  background: none;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #500000;
+  padding: 14px 40px;
+  outline: none;
+  color: #500000;
+  border-radius: 24px;
+  transition: 0.25s;
+  display: inline;
+  cursor: pointer;
+}
+
+.box input[type = "submit"]:hover{
+  background: #500000;
+  color: white;
+}
+
+.popup{
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  position: absolute;
+  background: white;
+  color: #500000;
+  text-align: center;
+
+  margin: 20px auto;
+  padding: 14px 40px;
+
+  border-radius: 24px;
+}
