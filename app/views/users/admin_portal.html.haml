@@ -5,8 +5,8 @@
 %div{:class => "container"}
   %div{:class => "row", :style => "text-align: center"}
     %div{:class => "col-xs-4"}
-      -#= render :partial => "/partials/tagbutton"
-      %p= 'This will become the add admin link'
+      = render :partial => "/partials/userbutton"
+      -#%p= 'This will become the user list link'
     %div{:class => "col-xs-4"}
       = render :partial => "/partials/apartmentbutton"
       -#%p= 'This will become the apartment link - currently works, but linked to the wrong view'
