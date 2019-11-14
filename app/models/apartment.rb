@@ -43,45 +43,31 @@ class Apartment < ApplicationRecord
 
   #pricing data
   def get_average_price
-    reviews = Review.where(:apartment_id => self.id)
-    if reviews.size == 0
-      return 0.0
-    end
+    average = Review.where(:apartment_id => self.id).average(:price)
+    if average
+      return average.round(2)
 
-    sum = 0
-    reviews.each do |review|
-      sum = sum + review.price
+    else
+      return nil
     end
-    return sum/reviews.size
   end
 
   def get_min_price
-    reviews = Review.where(:apartment_id => self.id)
-    if reviews.size == 0
-      return 0.0
+    minimum = Review.where(:apartment_id => self.id).minimum(:price)
+    if minimum
+      return minimum.round(2)
+    else
+      return nil
     end
-
-    min = reviews.first.price
-    reviews.each do |review|
-      if review.price < min
-        min = review.price
-      end
-    end
-    return min
   end
 
   def get_max_price
-    reviews = Review.where(:apartment_id => self.id)
-    if reviews.size == 0
-      return 0.0
+    maximum = Review.where(:apartment_id => self.id).maximum(:price)
+    if maximum
+      return maximum.round(2)
+    else
+      return nil
     end
-
-    max = reviews.first.price
-    reviews.each do |review|
-      if review.price > max
-        max = review.price
-      end
-    end
-    return max
   end
+
 end
