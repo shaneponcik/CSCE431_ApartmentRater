@@ -9,8 +9,10 @@ Background:
   And I have a review on an apartment
 
 Scenario: Looking at the homepage
+  Given I am on the homepage
   Then I should see an apartment with a rating
 
 Scenario: Looking at an individual apartment
+  Given I am on the homepage
   When I click to see an individual apartment
   Then I should see a review with an overall rating
