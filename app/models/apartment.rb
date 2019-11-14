@@ -52,7 +52,7 @@ class Apartment < ApplicationRecord
     reviews.each do |review|
       sum = sum + review.price
     end
-    return sum/reviews.size
+    return (sum/reviews.size).round(2)
   end
 
   def get_min_price
