@@ -152,7 +152,7 @@ class ReviewsController < ApplicationController
       end
 
     end
-    redirect_to @review, notice: 'Review was successfully created.'
+    redirect_to reviews_path, notice: 'Review was successfully created.'
   end
 
   # PATCH/PUT /reviews/1
@@ -196,7 +196,7 @@ class ReviewsController < ApplicationController
       end
 
     end
-    redirect_to @review, notice: 'Review was successfully edited.'
+    redirect_to reviews_path, notice: 'Review was successfully edited.'
   end
 
   # DELETE /reviews/1
