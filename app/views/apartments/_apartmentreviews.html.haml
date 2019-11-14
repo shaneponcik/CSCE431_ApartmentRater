@@ -1,6 +1,6 @@
 - @reviews.each do |review|
-  %h4= "Description: "
-  %h5= "#{review.review_text}"
+  %h3= "Description: "
+  %p= "#{review.review_text}"
   %h4= "Price(per person for unit): #{review.price}"
   - review.get_metrics.each do |metric_key, metric_value|
     - if metric_key.name == "Overall"

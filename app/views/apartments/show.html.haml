@@ -1,6 +1,6 @@
 %p#notice= notice
 %h1= "Apartment: #{@apartment.name}"
-%h3= "Average overall rating: #{@apartment.average_rating} from #{@apartment.review_count} reviews"
+%h3= "Average rating: #{@apartment.average_rating} from #{@apartment.review_count} review(s)"
 %h3= "Pricing: average = $#{@apartment.get_average_price}, min = $#{@apartment.get_min_price}, max = $#{@apartment.get_max_price}"
 
 %hr
