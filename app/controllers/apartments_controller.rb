@@ -18,14 +18,25 @@ class ApartmentsController < ApplicationController
 
   # GET /apartments/new
   def new
-    @apartment = Apartment.new
+    redirect_to apartment_list_path, notice: 'All apartments are created at the top of the page'
   end
 
   # GET /apartments/1/edit
   def edit
+    if current_user.nil?
+      return redirect_to root_path, notice: 'Need to be logged in to access this page'
+    elsif not current_user.is_admin
+      return redirect_to root_path, notice: 'Need to be an admin to access this page'
+    end
   end
 
   def apartment_list
+    if current_user.nil?
+      return redirect_to root_path, notice: 'Need to be logged in to access this page'
+    elsif not current_user.is_admin
+      return redirect_to root_path, notice: 'Need to be an admin to access this page'
+    end
+
     flash[:back] = 'list'
 
     @apartments = Apartment.all
