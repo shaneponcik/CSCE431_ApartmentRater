@@ -15,5 +15,5 @@
 
 
 %div
-  - if notice != nil
-    %p{class: "popup"}= notice
+  - if flash[:notice] != nil
+    %p{class: "popup"}= flash[:notice]

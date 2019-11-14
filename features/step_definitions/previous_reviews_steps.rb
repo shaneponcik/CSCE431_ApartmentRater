@@ -10,7 +10,7 @@ And(/^I fill out the form and submit it$/) do
   fill_in('user_email', with: 'user1@tamu.edu')
   fill_in('user_password', with: '12345')
   fill_in('user_vPassword', with: '12345')
-  click_button('commit')
+  first(:button, 'Create Account', minimum: 1).click
 end
 
 
