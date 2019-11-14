@@ -14,4 +14,6 @@
         %div.star.checked{:style=>"float:left"}★
       -for x in 1..(5-apartment.average_rating.ceil(0)) do
         %div.star{:style=>"float:left"}★
-  %p{:style => "display:inline-block; font-size: large; vertical-align: 55%;"}="(#{apartment.review_count})"
+    %p{:style => "display:inline-block; font-size: large; vertical-align: 55%;"}="(#{apartment.review_count})"
+  -else
+    %p{:style => "display:inline-block; font-size: large; vertical-align: 55%;"}="No Reviews"
