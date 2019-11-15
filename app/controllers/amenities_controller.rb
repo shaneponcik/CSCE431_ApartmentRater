@@ -4,21 +4,34 @@ class AmenitiesController < ApplicationController
   # GET /amenities
   # GET /amenities.json
   def index
+    if current_user.nil?
+      return redirect_to root_path, notice: 'Need to be logged in to access this page'
+    elsif not current_user.is_admin
+      return redirect_to root_path, notice: 'Need to be an admin to access this page'
+    end
     @amenities = Amenity.all
+
+    @amenity = Amenity.new
   end
 
   # GET /amenities/1
   # GET /amenities/1.json
   def show
+    redirect_to amenities_path, notice: 'All amenities can be viewed from the list'
   end
 
   # GET /amenities/new
   def new
-    @amenity = Amenity.new
+    redirect_to amenities_path, notice: 'All amenities are created at the top of the page'
   end
 
   # GET /amenities/1/edit
   def edit
+    if current_user.nil?
+      return redirect_to root_path, notice: 'Need to be logged in to access this page'
+    elsif not current_user.is_admin
+      return redirect_to root_path, notice: 'Need to be an admin to access this page'
+    end
   end
 
   # POST /amenities
@@ -28,10 +41,10 @@ class AmenitiesController < ApplicationController
 
     respond_to do |format|
       if @amenity.save
-        format.html { redirect_to @amenity, notice: 'Amenity was successfully created.' }
+        format.html { redirect_to amenities_url, notice: 'Amenity was successfully created.' }
         format.json { render :show, status: :created, location: @amenity }
       else
-        format.html { render :new }
+        format.html { redirect_to amenities_url, notice: 'Amenity failed to be created.'}
         format.json { render json: @amenity.errors, status: :unprocessable_entity }
       end
     end
@@ -42,7 +55,7 @@ class AmenitiesController < ApplicationController
   def update
     respond_to do |format|
       if @amenity.update(amenity_params)
-        format.html { redirect_to @amenity, notice: 'Amenity was successfully updated.' }
+        format.html { redirect_to amenities_url, notice: 'Amenity was successfully updated.' }
         format.json { render :show, status: :ok, location: @amenity }
       else
         format.html { render :edit }

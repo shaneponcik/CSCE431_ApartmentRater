@@ -1,5 +1,7 @@
-When(/^I click on Add Apartment$/) do
-  click_link('Add an Apartment')
+When(/^I access the admin portal and click on View Apartments$/) do
+  visit root_path
+  click_link('Admin Portal')
+  click_link('View Apartments')
 end
 
 Then(/^I am on the page to add a new apartment$/) do
@@ -40,9 +42,5 @@ When(/^I don't fill out the new apartment form$/) do
 end
 
 Then(/^I should see a failure message for apartments$/) do
-  expect(page).to have_text('prohibited this apartment from being saved:')
-end
-
-And(/^I should see that the name shouldn't be blank$/) do
-  expect(page).to have_text('Name can\'t be blank')
+  expect(page).to have_text('Apartment failed to be created.')
 end

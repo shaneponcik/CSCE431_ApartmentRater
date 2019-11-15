@@ -5,7 +5,10 @@ Feature: Add Apartment Form
 
 Background:
   Given I am on the homepage
-  When I click on Add Apartment
+  And I click on Sign Up
+  And I fill out the form and submit it
+  And I am an admin
+  When I access the admin portal and click on View Apartments
   Then I am on the page to add a new apartment
 
 Scenario: Create a new apartment
@@ -13,11 +16,9 @@ Scenario: Create a new apartment
   And Submit the form
   Then I should see a success message
   And Be on the individual apartment page
-  When I go back to the homepage
   Then I should see the new apartment listed there
 
 Scenario: Fill out the new apartment form with a blank name
   When I don't fill out the new apartment form
   And Submit the form
   Then I should see a failure message for apartments
-  And I should see that the name shouldn't be blank
