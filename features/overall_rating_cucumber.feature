@@ -16,3 +16,12 @@ Scenario: Looking at an individual apartment
   Given I am on the homepage
   When I click to see an individual apartment
   Then I should see a review with an overall rating
+
+Scenario: Make a review with an overall metric
+  Given I am on the homepage
+  And I click on Sign Up
+  And I fill out the form and submit it
+  When I make a review with the overall metric
+  And I navigate back to the homepage
+  Then I click to see an individual apartment
+  And I should see two reviews with an overall rating

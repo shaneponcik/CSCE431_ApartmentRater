@@ -20,3 +20,18 @@ end
 Then(/^I should see a review with an overall rating$/) do
   expect(page).to have_text('Overall Rating: 5')
 end
+
+When(/^I make a review with the overall metric$/) do
+  click_link('Add A Review')
+  fill_in('review_text', with: 'Testing comment')
+  click_button('Submit Review')
+end
+
+And(/^I navigate back to the homepage$/) do
+  visit root_path
+end
+
+And(/^I should see two reviews with an overall rating$/) do
+  expect(page).to have_text('Overall Rating: 5')
+  expect(page).to have_text('Overall Rating: 1')
+end
