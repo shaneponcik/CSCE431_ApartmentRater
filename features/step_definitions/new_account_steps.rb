@@ -33,8 +33,8 @@ When(/^I only fill out the email of the form and submit it$/) do
 end
 
 Then(/^I should see the account creation failed with a blank password error$/) do
-  expect(page).to have_text('error prohibited this user from being saved')
+  # expect(page).to have_text('error prohibited this user from being saved')
   expect(page).to have_text('Password can\'t be blank')
-  expect(page).to have_text('New user')
+  expect(page).to have_text('Create Account')
 end
 

@@ -24,3 +24,8 @@ Feature: See Previous Reviews Made
     When I have logged out
     Then I should not see the link for the previous reviews
 
+  Scenario: User is not logged in so shouldn't be able to type in the url to access reviews
+    When I have logged out
+    And I attempt to access the previous reviews page
+    Then I should see I am still on the homepage
+

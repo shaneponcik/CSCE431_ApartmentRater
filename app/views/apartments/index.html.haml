@@ -1,7 +1,7 @@
 =render :partial => "/partials/loginbutton"
 - if current_user
   =render :partial => "/partials/gotoadmin"
-      
+
 =render :partial => "partials/header"
 
 //middle grey bar in loFi
@@ -32,14 +32,19 @@
 -@apartments.each do |apartment|
   %div{:class => "row"}
   %div{:class => "col-xs-3"}
-    %img{:src => "/assets/stock_apartment.jpg", :class=>"img-thumbnail" }
+    %img{:src => apartment.imageURL, :class=>"img-thumbnail" }
+    %p{:style => "text-align: center;"}= "#{apartment.address}"
   %div{:class => "col-xs-9"}
-    %br
     %a{ :href => "apartments/#{apartment.id}"}
       %strong
         %h3= "#{apartment.name}"
     %p= "Average overall rating: #{apartment.average_rating} from #{apartment.review_count} reviews"
     %p= "Pricing: average = $#{apartment.get_average_price}, min = $#{apartment.get_min_price}, max = $#{apartment.get_max_price}"
+    %p
+      %strong Website:
+    %a{ :href => "#{apartment.website}"}
+      %p= "#{apartment.website}"
+    %p{:style => "display:block"}
     %p
       %strong Description:
     %p= "#{apartment.description}"
@@ -48,6 +53,5 @@
       -apartment.get_tags.each do |tag, count|
         %div.tag{ :style => "float:left;padding: 0px 5px;border-radius: 25px; border: 2px solid #73AD21;margin-left: 2px;" }
           ="#{tag} #{count}"
-    -# %p= link_to 'Edit', edit_apartment_path(apartment)
-    -# %p= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' }
+    %p{:style => "float:right"}= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' }
 

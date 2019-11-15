@@ -10,7 +10,7 @@ And(/^I fill out the form and submit it$/) do
   fill_in('user_email', with: 'user1@tamu.edu')
   fill_in('user_password', with: '12345')
   fill_in('user_vPassword', with: '12345')
-  click_button('commit')
+  first(:button, 'Create Account', minimum: 1).click
 end
 
 
@@ -53,4 +53,12 @@ end
 And(/^I can click on add review$/) do
   click_link('New Review')
   expect(page).to have_text('New Review')
+end
+
+And(/^I attempt to access the previous reviews page$/) do
+  visit('/reviews')
+end
+
+Then(/^I should see I am still on the homepage$/) do
+  expect(page).to have_text('Rate My Apartment')
 end
