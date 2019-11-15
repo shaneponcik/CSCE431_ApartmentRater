@@ -1,9 +1,11 @@
-When(/^I click on Add Tag$/) do
-  click_link('Add a Tag')
+When(/^I access the admin portal and click on View Tags$/) do
+  visit root_path
+  click_link('Admin Portal')
+  click_link('View Tags')
 end
 
 Then(/^I am on the page to add the new tag$/) do
-  expect(page).to have_text('New tag')
+  expect(page).to have_text('New Tag')
 end
 
 When(/^I fill out the new tag form with a name$/) do
@@ -28,5 +30,5 @@ When(/^I don't fill out the new tag form$/) do
 end
 
 Then(/^I should see a failure message for tags$/) do
-  expect(page).to have_text('prohibited this tag from being saved:')
+  expect(page).to have_text('Tag failed to be created.')
 end

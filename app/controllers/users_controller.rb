@@ -4,12 +4,18 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    if current_user.nil?
+      return redirect_to root_path, notice: 'Need to be logged in to access this page'
+    elsif not current_user.is_admin
+      return redirect_to root_path, notice: 'Need to be an admin to access this page'
+    end
     @users = User.all
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    redirect_to users_path, notice: 'All users can be viewed from the list'
   end
 
   # GET /users/new
@@ -19,6 +25,11 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    if current_user.nil?
+      return redirect_to root_path, notice: 'Need to be logged in to access this page'
+    elsif not current_user.is_admin
+      return redirect_to root_path, notice: 'Need to be an admin to access this page'
+    end
   end
 
   # POST /users
@@ -65,7 +76,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to users_url, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }

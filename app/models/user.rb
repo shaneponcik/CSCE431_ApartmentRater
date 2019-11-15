@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  attr_accessor :vPassword
   has_secure_password
   validates :email, presence: true, uniqueness: true
 

@@ -2,4 +2,7 @@
 = render 'form', review: @review
 = link_to 'Show', @review, data: { confirm: 'Are you sure you want to continue without saving?' }
 |
-= link_to 'Back', reviews_path, data: { confirm: 'Are you sure you want to continue without saving?' }
+-if flash[:back] == 'index'
+  = link_to 'Back', reviews_path, data: { confirm: 'Are you sure you want to continue without saving?' }
+-else
+  = link_to 'Back', review_list_path, data: {confirm: 'Are you sure you want to continue without saving?'}
