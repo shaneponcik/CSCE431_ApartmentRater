@@ -50,9 +50,11 @@ class UsersController < ApplicationController
     if not (params["email"].include? "@tamu.edu" or params["email"].include? "@blinn.edu")
       flash[:notice] = "Please use a Tamu or Blinn email."
       return false
-    end
-    if params["password"] != params["vPassword"]
+    elsif params["password"] != params["vPassword"]
       flash[:notice] = "Passwords do not match."
+      return false
+    elsif params["password"] == ""
+      flash[:notice] = "Password can\'t be blank"
       return false
     end
     return true
@@ -79,6 +81,14 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def admin_portal
+    if current_user.nil?
+      return redirect_to root_path
+    elsif not current_user.is_admin
+      return redirect_to root_path
     end
   end
 
