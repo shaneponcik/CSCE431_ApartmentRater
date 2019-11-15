@@ -43,7 +43,7 @@ class MetricsController < ApplicationController
         format.html { redirect_to metrics_url, notice: 'Metric was successfully created.' }
         format.json { render :show, status: :created, location: @metric }
       else
-        format.html { render :new }
+        format.html { redirect_to metrics_url, notice: 'Metric failed to be created.'}
         format.json { render json: @metric.errors, status: :unprocessable_entity }
       end
     end

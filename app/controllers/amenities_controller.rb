@@ -44,7 +44,7 @@ class AmenitiesController < ApplicationController
         format.html { redirect_to amenities_url, notice: 'Amenity was successfully created.' }
         format.json { render :show, status: :created, location: @amenity }
       else
-        format.html { render :new }
+        format.html { redirect_to amenities_url, notice: 'Amenity failed to be created.'}
         format.json { render json: @amenity.errors, status: :unprocessable_entity }
       end
     end

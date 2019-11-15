@@ -54,7 +54,7 @@ class ApartmentsController < ApplicationController
         format.html { redirect_to apartment_list_url, notice: 'Apartment was successfully created.' }
         format.json { render :show, status: :created, location: @apartment }
       else
-        format.html { render :new }
+        format.html { redirect_to apartment_list_url, notice: 'Apartment failed to be created.' }
         format.json { render json: @apartment.errors, status: :unprocessable_entity }
       end
     end
