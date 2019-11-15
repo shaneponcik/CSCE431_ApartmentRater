@@ -5,7 +5,7 @@
   %h4= "Nearby on-campus buildings: #{@apartment.get_buildings}"
 - else
   %h4= "Not close to campus"
--if @apartment.get_busses.nil?
+-if @apartment.get_busses == 0
   %h4= "No buses nearby"
 -else
   %h4= "A&M bus routes nearby: #{@apartment.get_busses}"
