@@ -1,25 +1,24 @@
-
 %p#notice= notice
 
--if current_user
-  %p
-    %b Email:
-    = current_user.email
-  %p
-    %b Password:
-    = current_user.password
+%h1= "Admin Logged In is #{current_user.email}"
 
-  = link_to 'Edit', edit_user_path(current_user)
-  \|
+%div{:class => "container"}
+  %div{:class => "row", :style => "text-align: center"}
+    %div{:class => "col-xs-4"}
+      = render :partial => "/partials/userbutton"
+      -#%p= 'This will become the user list link'
+    %div{:class => "col-xs-4"}
+      = render :partial => "/partials/apartmentbutton"
+      -#%p= 'This will become the apartment link - currently works, but linked to the wrong view'
+    %div{:class => "col-xs-4"}
+      = render :partial => "/partials/tagbutton"
+  %div{:class => "row", :style => "text-align: center"}
+    %div{:class => "col-xs-4"}
+      = render :partial => "/partials/metricbutton"
+    %div{:class => "col-xs-4"}
+      = render :partial => "/partials/reviewsbutton"
+      -#%p= 'This should become our all review page'
+    %div{:class => "col-xs-4"}
+      = render :partial => "/partials/amenitybutton"
 
-  = link_to 'Back', root_path
-  - if current_user.is_admin
-    #admin_options
-      .actions
-        f.submit 'Change user permissions'
-      .actions
-        f.submit 'Delete other user'
-      .actions
-        f.submit 'Delete post of other user'
-      .actions
-        f.submit 'Edit post of other user'
+= link_to 'Back', root_path

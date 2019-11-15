@@ -17,6 +17,8 @@
     - if metric_key.name != "Overall"
       %p= "#{metric_key.name}: #{metric_value}"
   %hr/
-= link_to 'Edit', edit_apartment_path(@apartment)
-|
-= link_to 'Back', apartments_path
+
+-if flash[:back] == 'index'
+  = link_to 'Back', root_path
+-else
+  = link_to 'Back', apartment_list_path
