@@ -45,8 +45,7 @@ class Apartment < ApplicationRecord
   def get_average_price
     average = Review.where(:apartment_id => self.id).average(:price)
     if average
-      return average.round(2)
-
+      return average
     else
       return nil
     end
