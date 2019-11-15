@@ -54,3 +54,11 @@ And(/^I can click on add review$/) do
   click_link('New Review')
   expect(page).to have_text('New Review')
 end
+
+And(/^I attempt to access the previous reviews page$/) do
+  visit('/reviews')
+end
+
+Then(/^I should see I am still on the homepage$/) do
+  expect(page).to have_text('Rate My Apartment')
+end
