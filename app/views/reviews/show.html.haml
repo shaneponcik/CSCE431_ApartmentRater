@@ -14,7 +14,7 @@
   %p= "#{metric_key.name}: #{metric_value}"
 = link_to 'Edit', edit_review_path(@review)
 |
--if flash[:back] == 'index'
+-if flash[:back] == 'index' || flash[:edit] == 'index'
   = link_to 'Back', reviews_path
 -else
   = link_to 'Back', review_list_path
