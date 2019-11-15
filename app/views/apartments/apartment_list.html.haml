@@ -1,0 +1,32 @@
+%p#notice= notice
+
+%h1 Create a New Apartment
+
+= render 'form'
+
+%br
+
+%h1 Listing Apartments
+
+%table{:class => "table"}
+  %thead
+    %th
+    %th
+    %th
+    %th
+    %th
+
+  %tbody
+    -@apartments.each do |apartment|
+      %tr
+        %td= apartment.name
+        %td= "Number of Reviews: #{apartment.review_count}"
+        %td= link_to 'Show', apartment
+        %td= link_to 'Edit', edit_apartment_path(apartment)
+        %td= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' }
+      %tr
+        %td{:colspan => "5"}= "Description: #{apartment.description}"
+
+%br
+
+= link_to 'Back', admin_only_path
