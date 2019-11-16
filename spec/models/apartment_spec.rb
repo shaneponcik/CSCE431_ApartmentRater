@@ -26,4 +26,23 @@ describe Apartment, "#get_reviews" do
   end
 end
 
+describe Apartment, "#is_close" do
+  it "returns whether or not the property is close to campus" do
+    apt = Apartment.create(:name => "test", :near_campus => true)
+    expect(apt.is_close).to eq true
+  end
+end
 
+describe Apartment, "#get_busses" do
+  it "returns the bus routes near the apartment" do
+    apt = Apartment.create(:name => "test", :bus_route => 420)
+    expect(apt.get_busses).to eq 420
+  end
+end
+
+describe Apartment, "#get_buildings" do
+  it "returns the campus buildings near the apartment" do
+    apt = Apartment.create(:name => "test", :building_near => "Zachry")
+    expect(apt.building_near).to eq "Zachry"
+  end
+end
