@@ -23,4 +23,5 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy', as: 'logout'
   get 'admin', to: 'users#admin_portal', as: 'admin_only'
+  get 'add_admin', to: 'users#admin', as: 'add_admin'
 end
