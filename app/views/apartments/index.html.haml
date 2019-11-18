@@ -1,0 +1,45 @@
+=render :partial => "/partials/loginbutton"
+- if current_user
+  =render :partial => "/partials/gotoadmin"
+
+%p#notice= notice
+
+=render :partial => "partials/header"
+
+//middle grey bar in loFi
+%div{:class => "container"}
+  %div{:class => "row", :style => "text-align: center"}
+    %div{:class => "col-xs-4"}
+      = render :partial => "/partials/addreviewbutton"
+    %div{:class => "col-xs-4"}
+      = render :partial => "searchbar"
+    %div{:class => "col-xs-4"}
+      = render :partial => "/partials/showpreviousreviews"
+
+%hr
+
+%div{:class => "container"}
+-@apartments.each do |apartment|
+  %div{:class => "row"}
+  %div{:class => "col-xs-3"}
+    %img{:src => apartment.imageURL, :class=>"img-thumbnail" }
+    %p{:style => "text-align: center;"}= "#{apartment.address}"
+  %div{:class => "col-xs-9"}
+    %a{ :href => "apartments/#{apartment.id}"}
+      %strong{:style => "float:left;padding-right:10px;font-size:x-large"}= "#{apartment.name}"
+    %div= render 'rating', apartment: apartment
+    %p
+      %strong Website:
+    %a{ :href => "#{apartment.website}"}
+      %p= "#{apartment.website}"
+    %p{:style => "display:block"}
+    %p
+      %strong Description:
+    %p= "#{apartment.description}"
+    %p
+      %strong{ :style => "float:left; padding: 2px;" } Tags:
+      -apartment.get_tags.each do |tag, count|
+        %div.tag{ :style => "float:left;padding: 0px 5px;border-radius: 25px; border: 2px solid #73AD21;margin-left: 2px;" }
+          ="#{tag} #{count}"
+    %p{:style => "float:right"}= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' }
+

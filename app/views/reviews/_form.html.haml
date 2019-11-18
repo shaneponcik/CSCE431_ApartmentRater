@@ -1,0 +1,30 @@
+= form_tag(@route, method: @method) do
+  =hidden_field_tag :user_id, @current_user
+
+  =label_tag(:apartment_id, "Select Apartment:")
+  =select_tag(:apartment_id, options_from_collection_for_select(@apartments, "id", "name", @review.apartment_id))
+  %br
+  =label_tag(:review_text, "Insert Review Text:")
+  =text_area_tag(:review_text, @review.review_text)
+  %br
+  //amenities checkboxes
+  %p= "Amenities Available(Check): "
+  -@amenities.each do |amenity|
+    =label_tag(amenity.name)
+    =check_box_tag("amenity_#{amenity.id}", '1', @review_amenities[amenity.id])
+  //tags checkboxes
+  %p= "Select Appropriate Tags: "
+  -@tags.each do |tag|
+    =label_tag(tag.name)
+    =check_box_tag("tag_#{tag.id}", '1', @review_tags[tag.id])
+  //metrics
+  %p= "Evaluate Apartment on Metrics: "
+  -@metrics.each do |metric|
+    =label_tag(metric.name)
+    =select_tag("metric_#{metric.id}", options_for_select((1..5).step(1), @review_metrics[metric.id]))
+    %br
+  =submit_tag("Submit Review")
+
+
+
+
