@@ -8,6 +8,8 @@ class ReviewsController < ApplicationController
     if @user.nil?
       return redirect_to root_path
     end
+
+    flash[:back] = 'index'
     @email = @user.email
     @review = Review.get_reviews_for_user(session[:user_id])
   end
@@ -15,6 +17,12 @@ class ReviewsController < ApplicationController
   # GET /reviews/1
   # GET /reviews/1.json
   def show
+    if flash[:back] == 'index' || flash[:edit] == 'index'
+      flash[:edit] = 'index'
+    elsif flash[:back] == 'list' || flash[:edit] == 'list'
+      flash[:edit] = 'list'
+    end
+
     @review = Review.find_by_id(params[:id])
   end
 
@@ -71,6 +79,12 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/1/edit
   def edit
+    if flash[:back] == 'index' || flash[:edit] == 'index'
+      flash[:edit] = 'index'
+    elsif flash[:back] == 'list' || flash[:edit] == 'list'
+      flash[:edit] = 'list'
+    end
+
     @review = Review.find(params[:id])
     @route = "/reviews/" + params[:id]
     @method = "PUT"
@@ -120,6 +134,18 @@ class ReviewsController < ApplicationController
     #should be same above as new's
   end
 
+  def review_list
+    if current_user.nil?
+      return redirect_to root_path, notice: 'Need to be logged in to access this page'
+    elsif not current_user.is_admin
+      return redirect_to root_path, notice: 'Need to be an admin to access this page'
+    end
+
+    flash[:back] = 'list'
+
+    @reviews = Review.all
+  end
+
   # POST /reviews
   # POST /reviews.json
   def create
@@ -151,7 +177,7 @@ class ReviewsController < ApplicationController
       end
 
     end
-    redirect_to @review, notice: 'Review was successfully created.'
+    redirect_to reviews_path, notice: 'Review was successfully created.'
   end
 
   # PATCH/PUT /reviews/1
@@ -194,7 +220,7 @@ class ReviewsController < ApplicationController
       end
 
     end
-    redirect_to @review, notice: 'Review was successfully edited.'
+    redirect_to reviews_path, notice: 'Review was successfully edited.'
   end
 
   # DELETE /reviews/1

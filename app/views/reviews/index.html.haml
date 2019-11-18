@@ -1,6 +1,10 @@
+%p#notice= notice
+
 %h1= "Reviews for " + @email
 
 %p= "Here you can view your previous reviews and edit or delete them if wanted"
+
+= link_to 'New Review', new_review_path
 
 %table{:class => "table"}
   %thead
@@ -17,4 +21,6 @@
     -else
       %p= "No reviews here... Why don't you go make one below ;)"
 %br/
-= link_to 'New Review', new_review_path
+
+= link_to 'Back', root_path
+

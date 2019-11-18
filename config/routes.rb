@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   #
   root 'apartments#index'
   resources :apartments
+  get 'apartment_list', to: 'apartments#apartment_list', as: 'apartment_list'
   resources :reviews
+  get 'review_list', to: 'reviews#review_list', as: 'review_list'
   resources :users
   resources :tags
   resources :metrics
@@ -17,7 +19,8 @@ Rails.application.routes.draw do
   get 'sessions/destroy'
   resources :sessions, only: [:new, :create, :destroy]
   get 'signup', to: 'users#new', as: 'signup'
-  get 'login', to: 'sessions#new', as: 'login'
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy', as: 'logout'
-
+  get 'admin', to: 'users#admin_portal', as: 'admin_only'
 end
