@@ -32,8 +32,10 @@
     %p{:style => "text-align: center;"}= "#{apartment.address}"
   %div{:class => "col-xs-9"}
     %a{ :href => "apartments/#{apartment.id}"}
-      %strong{:style => "float:left;padding-right:10px;font-size:x-large"}= "#{apartment.name}"
-    %div= render 'rating', apartment: apartment
+      %strong
+        %h3= "#{apartment.name}"
+    %p= "Average overall rating: #{apartment.average_rating} from #{apartment.review_count} reviews"
+    %p= "Pricing: average = $#{apartment.get_average_price}, min = $#{apartment.get_min_price}, max = $#{apartment.get_max_price}"
     %p
       %strong Website:
     %a{ :href => "#{apartment.website}"}

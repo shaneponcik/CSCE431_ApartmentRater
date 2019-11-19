@@ -25,8 +25,8 @@ end
 Given(/^I am a user that has made reviews$/) do
   user1 = User.where(:email => 'user1@tamu.edu').first()
   apt1 = Apartment.create(:name => "Apt1")
-  rev1 = Review.create(:user_id => user1.id, :review_text => "Text1", :apartment_id => apt1.id)
-  rev2 = Review.create(:user_id => user1.id, :review_text => "Text2", :apartment_id => apt1.id)
+  rev1 = Review.create(:user_id => user1.id, :review_text => "Text1", :apartment_id => apt1.id, :price => 1000)
+  rev2 = Review.create(:user_id => user1.id, :review_text => "Text2", :apartment_id => apt1.id, :price => 1000)
 end
 
 Then(/^I should see the reviews for the current user$/) do

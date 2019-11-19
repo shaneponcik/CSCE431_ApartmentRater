@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 2019_11_12_191849) do
     t.integer "apartment_id"
     t.integer "user_id"
     t.text "review_text"
+    t.decimal "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["apartment_id"], name: "index_reviews_on_apartment_id"
