@@ -38,8 +38,11 @@
       %strong Website:
     %a{ :href => "#{apartment.website}"}
       %p= "#{apartment.website}"
-    %p= "Pricing: average = $#{apartment.get_average_price}, min = $#{apartment.get_min_price}, max = $#{apartment.get_max_price}"
     %p{:style => "display:block"}
+    %p
+      %strong Average Pricing:
+    -# %p= "#{apartment.get_min_price} - #{apartment.get_max_price}"
+    %p= "#{apartment.get_average_price}"
     %p
       %strong Description:
     %p= "#{apartment.description}"
