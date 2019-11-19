@@ -10,7 +10,8 @@ And(/^I have a review on an apartment$/) do
 end
 
 Then(/^I should see an apartment with a rating$/) do
-  expect(page).to have_text('Average overall rating: 5 from 1 reviews')
+  expect(page).to have_text('★')
+  expect(page).to have_text('(1)')
 end
 
 When(/^I click to see an individual apartment$/) do
