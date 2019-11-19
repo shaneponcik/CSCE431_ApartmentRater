@@ -29,6 +29,7 @@ class ReviewsController < ApplicationController
   # GET /reviews/new
   def new
     @review = Review.new
+    @review.price = 0.0
     @route = "/reviews"
     @method = "POST"
 
