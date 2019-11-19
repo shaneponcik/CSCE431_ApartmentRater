@@ -1,0 +1,28 @@
+- @reviews.each do |review|
+  %h3= "Description: "
+  %p= "#{review.review_text}"
+  %h4= "Price(per person for unit): #{review.price}"
+  - review.get_metrics.each do |metric_key, metric_value|
+    - if metric_key.name == "Overall"
+      %h4= "Overall Rating: #{metric_value}"
+
+  %h4 Amenities
+  - review.get_amenities.each do |amenity|
+    %div.tag{ :style => "float:left;padding: 0px 5px;border-radius: 25px; border: 2px solid #0033cc;margin-left: 2px;" }
+      ="#{amenity.name}"
+  %br
+
+  %h4 Tags:
+  - review.get_tags.each do |tag|
+    %div.tag{ :style => "float:left;padding: 0px 5px;border-radius: 25px; border: 2px solid #73AD21;margin-left: 2px;" }
+      ="#{tag.name}"
+  %br
+
+  %h4 Metrics
+  - review.get_metrics.each do |metric_key, metric_value|
+    - if metric_key.name != "Overall"
+      %div.tag{ :style => "float:left;padding: 0px 5px;border-radius: 25px; border: 2px solid #ff0000;margin-left: 2px;" }
+        ="#{metric_key.name}: #{metric_value}"
+  %br
+
+  %hr

@@ -40,6 +40,10 @@
       %p= "#{apartment.website}"
     %p{:style => "display:block"}
     %p
+      %strong Average Pricing:
+    -# %p= "#{apartment.get_min_price} - #{apartment.get_max_price}"
+    %p= "#{apartment.get_average_price}"
+    %p
       %strong Description:
     %p= "#{apartment.description}"
     %p
