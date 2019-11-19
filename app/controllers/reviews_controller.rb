@@ -29,6 +29,7 @@ class ReviewsController < ApplicationController
   # GET /reviews/new
   def new
     @review = Review.new
+    @review.price = 0.0
     @route = "/reviews"
     @method = "POST"
 
@@ -154,6 +155,7 @@ class ReviewsController < ApplicationController
     @review.apartment_id = params['apartment_id']
     @review.review_text = params['review_text']
     @review.user_id = params['user_id']
+    @review.price = params['price']
 
     ActiveRecord::Base.transaction do
       @review.save
@@ -188,6 +190,7 @@ class ReviewsController < ApplicationController
     @review.apartment_id = params['apartment_id']
     @review.review_text = params['review_text']
     @review.user_id = params['user_id']
+    @review.price = params['price']
 
     ActiveRecord::Base.transaction do
       @review.save

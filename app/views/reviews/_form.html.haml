@@ -7,6 +7,8 @@
   =label_tag(:review_text, "Insert Review Text:")
   =text_area_tag(:review_text, @review.review_text)
   %br
+  =label_tag(:price, "Price paid(per person):")
+  =number_field_tag(:price, @review.price, min: 1, max: 5000)
   //amenities checkboxes
   %p= "Amenities Available(Check): "
   -@amenities.each do |amenity|

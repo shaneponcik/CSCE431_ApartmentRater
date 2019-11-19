@@ -45,27 +45,6 @@
             {name:"The Wick"},
             {name:"Campus Village"}])
 
-    reviews = Review.create(
-        [
-            {apartment_id:1,user_id:1,review_text:"Sample Text"},
-            {apartment_id:3,user_id:3,review_text:"I loved this place!"}])
-        review_tags = ReviewTag.create(
-            [
-                {review_id:1,tag_id:1},
-                {review_id:1,tag_id:3},
-                {review_id:2,tag_id:4},
-                {review_id:2,tag_id:2}])
-        review_amenities = ReviewAmenity.create(
-            [
-                {review_id:1,amenity_id:1},
-                {review_id:1,amenity_id:4}])
-        review_metrics = ReviewMetric.create(
-            [
-                {review_id:1,metric_id:1,rating:5},
-                {review_id:1,metric_id:2,rating: 2},
-                {review_id:2,metric_id:3,rating: 4}
-            ])
-
     admin_table = AdminTable.create(
         [
             {user_id: 1}

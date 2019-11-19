@@ -15,6 +15,12 @@
       = render :partial => "searchbar"
     %div{:class => "col-xs-4"}
       = render :partial => "/partials/showpreviousreviews"
+  %div{:class => "row", :style => "text-align: center"}
+    %div{:class => "col-xs-4"}
+    %div{:class => "col-xs-4"}
+      -if current_user
+        = link_to 'Become Admin', add_admin_path(id: current_user.id)
+    %div{:class => "col-xs-4"}
 
 %hr
 
@@ -33,6 +39,10 @@
     %a{ :href => "#{apartment.website}"}
       %p= "#{apartment.website}"
     %p{:style => "display:block"}
+    %p
+      %strong Average Pricing:
+    -# %p= "#{apartment.get_min_price} - #{apartment.get_max_price}"
+    %p= "#{apartment.get_average_price}"
     %p
       %strong Description:
     %p= "#{apartment.description}"
