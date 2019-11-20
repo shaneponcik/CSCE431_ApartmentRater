@@ -1,2 +1,4 @@
+= form_tag admin_only_path, :id => 'toAdmin', :method => :get do |form|
+  %div
 -if current_user.is_admin
-  =link_to 'Admin Portal', admin_only_path
+  = submit_tag "Admin Portal", form: "toAdmin", :class=>"navbarButton"

@@ -1,6 +1,6 @@
 When(/^I access the admin portal and click on View Apartments$/) do
   visit root_path
-  click_link('Admin Portal')
+  click_button('Admin Portal')
   click_link('View Apartments')
 end
 

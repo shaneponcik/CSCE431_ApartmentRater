@@ -1,5 +1,5 @@
 Given(/^I am logged in$/) do
-  click_link('Sign Up')
+  click_button('Sign Up')
   fill_in('user_email', with: 'user1@tamu.edu')
   fill_in('user_password', with: '12345')
   fill_in('user_vPassword', with: '12345')
