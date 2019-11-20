@@ -3,8 +3,7 @@
 %div.navbar
   %div.navbarItem.left
     = submit_tag "Home", form: "toHome", :class=>"navbarButton"
-  - if current_user
-    %div.navbarItem.left
-      =render :partial => "/partials/gotoadmin"
+  - if current_user and current_user.is_admin
+    =render :partial => "/partials/gotoadmin"
   =render :partial => "/partials/loginbutton"
 
