@@ -1,22 +1,11 @@
 %p#notice= notice
-%h2= "#{@apartment.name}"
-%hr/
-- @reviews.each do |review|
-  %h3= "#{review.review_text}"
-  - review.get_metrics.each do |metric_key, metric_value|
-    - if metric_key.name == "Overall"
-      %h4= "Overall Rating: #{metric_value}"
-  %h4 Amenities
-  - review.get_amenities.each do |amenity|
-    %p= "#{amenity.name}"
-  %h4 Tags
-  - review.get_tags.each do |tag|
-    %p= "#{tag.name}"
-  %h4 Metrics
-  - review.get_metrics.each do |metric_key, metric_value|
-    - if metric_key.name != "Overall"
-      %p= "#{metric_key.name}: #{metric_value}"
-  %hr/
+%h1= "Apartment: #{@apartment.name}"
+%h3= "Average rating: #{@apartment.average_rating} from #{@apartment.review_count} review(s)"
+%h3= "Pricing: average = $#{@apartment.get_average_price}, min = $#{@apartment.get_min_price}, max = $#{@apartment.get_max_price}"
+
+%hr
+
+=render :partial => "apartments/apartmentreviews"
 
 -if flash[:back] == 'index'
   = link_to 'Back', root_path

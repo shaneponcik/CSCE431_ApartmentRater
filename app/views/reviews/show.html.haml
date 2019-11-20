@@ -2,14 +2,18 @@
 %h2= "Apartment: #{@review.get_apartment.name}"
 %h2= "User: #{@review.get_user.email}"
 %hr/
-%h3= "#{@review.review_text}"
-%h4 Amenities
+%h3= "Description: #{@review.review_text}"
+%h3= "Price(per person for unit): #{@review.price}"
+%hr
+%h2 Amenities
 - @review.get_amenities.each do |amenity|
   %p= "#{amenity.name}"
-%h4 Tags
+%hr
+%h2 Tags
 - @review.get_tags.each do |tag|
   %p= "#{tag.name}"
-%h4 Metrics
+%hr
+%h2 Metrics
 - @review.get_metrics.each do |metric_key, metric_value|
   %p= "#{metric_key.name}: #{metric_value}"
 = link_to 'Edit', edit_review_path(@review)
