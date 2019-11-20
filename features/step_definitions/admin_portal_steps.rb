@@ -34,3 +34,32 @@ Then(/^I should see a list of reviews associated with the correct user$/) do
   expect(page).to have_text('Made by user2@tamu.edu', count: 2)
   expect(page).to have_text('Made by user3@tamu.edu', count: 2)
 end
+
+Given(/^I have several users that are admins and non-admins$/) do
+  user1 = User.create(:email => 'user2@tamu.edu', :password_digest => '12345')
+  user2 = User.create(:email => 'user3@tamu.edu', :password_digest => '23456')
+  user3 = User.create(:email => 'user4@tmau.edu', :password_digest => '34567')
+  user4 = User.create(:email => 'user5@tamu.edu', :password_digest => '45678')
+
+  admin = AdminTable.create(:user_id => user3.id)
+end
+
+When(/^I access the list of users$/) do
+  click_link('View Users')
+end
+
+Then(/^I should see a list of user with the correct options$/) do
+  expect(page).to have_text('Give Admin Privileges', count: 3)
+  expect(page).to have_text('Delete', count: 3)
+  expect(page).to have_text('Edit', count: 5)
+end
+
+And(/^I make a user an admin$/) do
+  click_link('Give Admin Privileges', :match => :first)
+end
+
+Then(/^I should see that user is now an admin and has the correct options$/) do
+  expect(page).to have_text('Give Admin Privileges', count: 2)
+  expect(page).to have_text('Delete', count: 2)
+  expect(page).to have_text('Edit', count: 5)
+end
