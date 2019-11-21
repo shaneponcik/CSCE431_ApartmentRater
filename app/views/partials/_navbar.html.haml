@@ -1,9 +1,34 @@
 = form_tag root_path, :id => 'toHome', :method => :get do |form|
   %div
+= form_tag login_path, :id => 'toLogin',  :method => :get do |form|
+  %div
+= form_tag signup_path,:id => 'toSignup', :method => :get do |form|
+  %div
+= form_tag logout_path,:id => 'toLogout', :method => :get do |form|
+  %div
 %div.navbar
   %div.navbarItem.left
     = submit_tag "Home", form: "toHome", :class=>"navbarButton"
-  - if current_user and current_user.is_admin
-    =render :partial => "/partials/gotoadmin"
-  =render :partial => "/partials/loginbutton"
 
+  - if current_user
+    - if current_user.is_admin
+      = form_tag admin_only_path, :id => 'toAdmin', :method => :get do |form|
+        %div
+      %div.navbarItem.left
+        = submit_tag "Admin Portal", form: "toAdmin", :class=>"navbarButton"
+
+    = form_tag edit_user_path(current_user),:id => 'toEditUser', :method => :get do |form|
+      %div
+    = form_tag new_review_path,:id => 'toNewReview', :method => :get do |form|
+      %div
+    %div.navbarItem.right
+      = submit_tag "Log Out", form: "toLogout", :class=>"navbarButton"
+    %div.navbarItem.right
+      = submit_tag "Logged in as #{current_user.email}", form: "toEditUser", :class=>"navbarButton"
+    %div.navbarItem.left
+      = submit_tag "+ Review", form: "toNewReview", :class=>"navbarButton"
+  - else
+    %div.navbarItem.left
+      = submit_tag "Sign Up", form: "toSignup", :class=>"navbarButton"
+    %div.navbarItem.left
+      = submit_tag "Login", form: "toLogin", :class=>"navbarButton"
