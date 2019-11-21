@@ -25,10 +25,13 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    print("\n\n\n\n\n#{current_user.id}\n#{params[:id]}\n\n#{current_user.id != params[:id].to_i}\n\n\n\n")
     if current_user.nil?
       return redirect_to root_path, notice: 'Need to be logged in to access this page'
     elsif not current_user.is_admin
-      return redirect_to root_path, notice: 'Need to be an admin to access this page'
+      if current_user.id != params[:id].to_i
+        return redirect_to root_path, notice: 'Need to be an admin to access this page'
+      end
     end
   end
 

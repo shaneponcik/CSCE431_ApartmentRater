@@ -6,10 +6,12 @@
   %div
 
 - if current_user
+  = form_tag edit_user_path(current_user),:id => 'toEditUser', :method => :get do |form|
+    %div
   %div.navbarItem.right
     = submit_tag "Log Out", form: "toLogout", :class=>"navbarButton"
   %div.navbarItem.right
-    Logged in as #{current_user.email}
+    = submit_tag "Logged in as #{current_user.email}", form: "toEditUser", :class=>"navbarButton"
 - else
   %div.navbarItem.left
     = submit_tag "Sign Up", form: "toSignup", :class=>"navbarButton"
