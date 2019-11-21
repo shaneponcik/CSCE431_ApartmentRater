@@ -26,7 +26,7 @@ end
 
 Then(/^I should be successful and redirected back to the homepage$/) do
   expect(page).to have_text('Rate My Apartments')
-  expect(page).to have_text('Logged in as user1@tamu.edu')
+  expect(page).to have_button('Logged in as user1@tamu.edu')
 end
 
 Then(/^I should receive an error and remain on the login page$/) do

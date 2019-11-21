@@ -6,7 +6,7 @@ When(/^I fill out the signup form and submit it$/) do
 end
 
 Then(/^I should see the account creation was successful$/) do
-  expect(page).to have_text('Logged in as')
+  expect(page).to have_button('Logged in as user1@tamu.edu')
 end
 
 When(/^I don't fill out the signup form and submit it$/) do
