@@ -76,9 +76,41 @@ When(/^I click the back button$/) do
 end
 
 When(/^I click to access the admin portal$/) do
-  click_link('Admin Portal')
+  click_button('Admin Portal')
 end
 
 Then(/^I should be in the admin portal$/) do
   expect(page).to have_text('Admin Logged In is')
+end
+
+And(/^I click to view Users$/) do
+  click_link('View Users')
+end
+
+Then(/^I should see a list of users$/) do
+  expect(page).to have_text('Listing users')
+end
+
+Then(/^I am on the page to edit a user$/) do
+  expect(page).to have_text('Editing user')
+end
+
+Then(/^I can see a list of apartments$/) do
+  expect(page).to have_text('Listing Apartments')
+end
+
+Then(/^I should see I can edit an apartment$/) do
+  expect(page).to have_text('Editing Apartment')
+end
+
+Then(/^I can see a list of tags$/) do
+  expect(page).to have_text('Listing tags')
+end
+
+Given(/^I have tags on the site$/) do
+  tag = Tag.create(:name => 'tag')
+end
+
+Then(/^I should see I can edit a tag$/) do
+  expect(page).to have_text('Editing tag')
 end
