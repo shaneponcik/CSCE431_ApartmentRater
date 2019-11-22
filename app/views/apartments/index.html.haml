@@ -31,7 +31,7 @@
     %img{:src => apartment.imageURL, :class=>"img-thumbnail" }
     %p{:style => "text-align: center;"}= "#{apartment.address}"
   %div{:class => "col-xs-9"}
-    %a{ :href => "apartments/#{apartment.id}"}
+    %a{ :href => "apartments/#{apartment.id}", :id => apartment.name}
       %strong{:style => "float:left;padding-right:10px;font-size:x-large"}= "#{apartment.name}"
     %div= render 'rating', apartment: apartment
     %p
