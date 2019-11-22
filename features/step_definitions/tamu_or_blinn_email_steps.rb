@@ -5,8 +5,12 @@ When(/^I fill out the form with a blinn email and submit it$/) do
   click_button('Create Account')
 end
 
-Then(/^I should see that I successfully created an account$/) do
-  expect(page).to have_text('Logged in as')
+Then(/^I should see that I successfully created a tamu account$/) do
+  expect(page).to have_button('Logged in as user1@tamu.edu')
+end
+
+Then(/^I should see that I successfully created a blinn account$/) do
+  expect(page).to have_button('Logged in as user1@blinn.edu')
 end
 
 When(/^I fill out the form with a tamu email and submit it$/) do

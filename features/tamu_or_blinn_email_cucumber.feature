@@ -9,11 +9,11 @@ Background:
 
 Scenario: Creating an account with a Blinn email
   When I fill out the form with a blinn email and submit it
-  Then I should see that I successfully created an account
+  Then I should see that I successfully created a blinn account
 
 Scenario: Creating an account with a Tamu email
   When I fill out the form with a tamu email and submit it
-  Then I should see that I successfully created an account
+  Then I should see that I successfully created a tamu account
 
 Scenario: Creating an account without a Tamu or Blinn email
   When I fill out the form without a tamu or blinn email and submit it

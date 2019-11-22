@@ -1,5 +1,5 @@
 = form_tag(@route, method: @method) do
-  =hidden_field_tag :user_id, @current_user
+  =hidden_field_tag :user_id, @current_user.id
 
   =label_tag(:apartment_id, "Select Apartment:")
   =select_tag(:apartment_id, options_from_collection_for_select(@apartments, "id", "name", @review.apartment_id))
