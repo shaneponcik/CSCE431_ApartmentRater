@@ -16,12 +16,33 @@ RSpec.describe UsersController, type: :controller do
   # in order to pass any filters (e.g. authentication) defined in
   # TagsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
+  
+  let(:invalid_session) { {} }
 
   describe "GET users#admin_portal" do
-    it "returns a success response" do
+    it "doesn't allow non-admin to access" do
       User.create! valid_attributes
       get :index, params: {}, session: valid_session
       expect(response).to not be_successful
+    end
+    it "doesn't allow non-admin to access" do
+      User.create! valid_attributes
+      get :index, params: {}, session: valid_session
+      expect(response).to not be_successful
+    end
+  end
+  
+  describe "admin_portal" do
+    it "redirects user if not logged in" do
+      User.create! invalid_session
+      get :index params: {}, session: invalid_session
+      expect 
+    end
+    it "redirects user if not admin" do
+      
+    end
+    it "allows user to access if admin"
+      
     end
   end
 end
