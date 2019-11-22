@@ -29,38 +29,58 @@ Scenario: Previous reviews routes correctly
 Scenario: Can see a review and go back
   Given I have made a review
   When I click on Show Previous Reviews Made
-  And I click to show a review
+  And I click to show
   Then I should be on the show a review page
   When I go back
   Then I should be on the previous reviews page
 
-Scenario: Can edit a review and go back
-  Given I have made a review
-  When I click on Show Previous Reviews Made
-  And I click to edit a reviews
-  Then I should be on the edit a review page
-  When I go back
-  Then I should be on the previous reviews page
+#Scenario: Can edit a review and go back
+#  Given I have made a review
+#  When I click on Show Previous Reviews Made
+#  And I click to edit
+#  Then I should be on the edit a review page
+#  When I go back accepting the pop up
+#  Then I should be on the previous reviews page
 
-Scenario: Can delete a review and go back to the same page
-  Given I have made a review
-  When I click on Show Previous Reviews Made
-  And I click to delete a review
-  Then I should be on the previous reviews page
+#Scenario: Can delete a review and go back to the same page
+#  Given I have made a review
+#  When I click on Show Previous Reviews Made
+#  And I click to delete a review
+#  Then I should be on the previous reviews page
 
 Scenario: Signup routes correctly
+  When I have logged out
+  And I click on Sign Up
+  Then I should see I am on the sign up page
+  When I click the back button
+  Then I should be redirected to the homepage
 
 Scenario: Login routes correctly
+  When I have logged out
+  And I click on Log In
+  Then I should see I am on the log in page
+  When I click the back button
+  Then I should be redirected to the homepage
 
 Scenario: Looking at apartments routes correctly
+  Given I have apartments on the site
+  When I access the apartment
+  Then I should see I am on the apartment page
+  When I go back to the homepage
+  Then I should be redirected to the homepage
 
 Scenario: Accessing the admin portal routes correctly
+  When I click to access the admin portal
+  Then I should be in the admin portal
+  When I go back to the homepage
+  Then I should be redirected to the homepage
 
 Scenario: Accessing the users in the admin portal routes correctly
+  When I click to access the admin portal
 
 Scenario: Edit a user and go back
 
-Scenario: Can delete a user and go back to the same page
+#Scenario: Can delete a user and go back to the same page
 
 Scenario: Accessing the apartments in the admin portal routes correctly
 
@@ -68,25 +88,25 @@ Scenario: Can see a apartment and go back
 
 Scenario: Can edit a apartment and go back
 
-Scenario: Can delete a apartment and go back to the same page
+#Scenario: Can delete a apartment and go back to the same page
 
 Scenario: Accessing the tags in the admin portal routes correctly
 
 Scenario: Can edit a tag and go back
 
-Scenario: Can delete a tag and go back to the same page
+#Scenario: Can delete a tag and go back to the same page
 
 Scenario: Accessing the metrics in the admin portal routes correctly
 
 Scenario: Can edit a metric and go back
 
-Scenario: Can delete a metric and go back to the same page
+#Scenario: Can delete a metric and go back to the same page
 
 Scenario: Accessing the amenities in the admin portal routes correctly
 
 Scenario: Can edit a amenity and go back
 
-Scenario: Can delete a amenity and go back to the same page
+#Scenario: Can delete a amenity and go back to the same page
 
 Scenario: Accessing the reviews in the admin portal routes correctly
 
@@ -94,4 +114,4 @@ Scenario: Can see a review and go back in the admin portal
 
 Scenario: Can edit a review and go back in the admin portal
 
-Scenario: Can delete a review and go back to the same page in the admin portal
+#Scenario: Can delete a review and go back to the same page in the admin portal
