@@ -30,6 +30,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem "rspec"
 gem "rspec-rails"
 gem 'bootstrap-sass', '~> 3.4.1'
+
 gem 'autoprefixer-rails'
 
 

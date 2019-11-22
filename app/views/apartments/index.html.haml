@@ -1,37 +1,32 @@
-=render :partial => "/partials/loginbutton"
-- if current_user
-  =render :partial => "/partials/gotoadmin"
-
-%p#notice= notice
-
 =render :partial => "partials/header"
 
 //middle grey bar in loFi
-%div{:class => "container"}
-  %div{:class => "row", :style => "text-align: center"}
-    %div{:class => "col-xs-4"}
-      = render :partial => "/partials/addreviewbutton"
-    %div{:class => "col-xs-4"}
-      = render :partial => "searchbar"
-    %div{:class => "col-xs-4"}
-      = render :partial => "/partials/showpreviousreviews"
-  %div{:class => "row", :style => "text-align: center"}
-    %div{:class => "col-xs-4"}
-    %div{:class => "col-xs-4"}
-      -if current_user
-        = link_to 'Become Admin', add_admin_path(id: current_user.id)
-    %div{:class => "col-xs-4"}
+%div.tamuForeground
+  %div.container
+    %div{:class => "row", :style => "text-align: center"}
+      %div.col-xs-4
+        = render :partial => "/partials/addreviewbutton"
+      %div.col-xs-4
+        = render :partial => "searchbar"
+      %div.col-xs-4
+        = render :partial => "/partials/showpreviousreviews"
+    %div{:class => "row", :style => "text-align: center"}
+      %div.col-xs-4
+      %div.col-xs-4
+        -if current_user
+          = link_to 'Become Admin', add_admin_path(id: current_user.id)
+      %div.col-xs-4
 
 %hr
 
-%div{:class => "container"}
+%div.container
 -@apartments.each do |apartment|
-  %div{:class => "row"}
-  %div{:class => "col-xs-3"}
+  %div.row
+  %div.col-xs-3
     %img{:src => apartment.imageURL, :class=>"img-thumbnail" }
     %p{:style => "text-align: center;"}= "#{apartment.address}"
-  %div{:class => "col-xs-9"}
-    %a{ :href => "apartments/#{apartment.id}", :id => apartment.name}
+  %div.col-xs-9
+    %a{ :href => "apartments/#{apartment.id}"}
       %strong{:style => "float:left;padding-right:10px;font-size:x-large"}= "#{apartment.name}"
     %div= render 'rating', apartment: apartment
     %p

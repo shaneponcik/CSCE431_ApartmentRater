@@ -70,9 +70,7 @@ class ReviewsController < ApplicationController
     end
 
     #only logged in users can create reviews
-    if current_user
-      @current_user = current_user.id
-    else
+    if not current_user
       return redirect_to root_path
     end
     #show be same above as edit's
@@ -127,9 +125,7 @@ class ReviewsController < ApplicationController
     end
 
     #only logged in users can create reviews
-    if current_user and current_user.id == @review.user_id
-      @current_user = current_user.id
-    else
+    if not (current_user and current_user.id == @review.user_id)
       return redirect_to root_path
     end
     #should be same above as new's

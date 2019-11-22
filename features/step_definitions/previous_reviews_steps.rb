@@ -3,7 +3,7 @@ When(/^I am on the homepage$/) do
 end
 
 And(/^I click on Sign Up$/) do
-  click_link('Sign Up')
+  click_button('Sign Up')
 end
 
 And(/^I fill out the form and submit it$/) do
@@ -15,7 +15,7 @@ end
 
 
 And(/^I go back to the homepage$/) do
-  click_link('Back')
+  click_button('Home')
 end
 
 When(/^I click on Show Previous Reviews Made$/) do
@@ -43,7 +43,7 @@ Then(/^I should see a message that says there are no reviews$/) do
 end
 
 When(/^I have logged out$/) do
-  click_link('Log Out')
+  click_button('Log Out')
 end
 
 Then(/^I should not see the link for the previous reviews$/) do
