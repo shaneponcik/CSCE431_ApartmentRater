@@ -17,32 +17,36 @@ RSpec.describe UsersController, type: :controller do
   # TagsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
   
-  let(:invalid_session) { {} }
+  let(:invalid_session) { {email@gmail.com, *&^} }
 
   describe "GET users#admin_portal" do
     it "doesn't allow non-admin to access" do
       User.create! valid_attributes
       get :index, params: {}, session: valid_session
-      expect(response).to not be_successful
+      expect(response).to not (be_successful)
     end
     it "doesn't allow non-admin to access" do
       User.create! valid_attributes
       get :index, params: {}, session: valid_session
-      expect(response).to not be_successful
+      expect(response).to not (be_successful)
     end
   end
   
   describe "admin_portal" do
     it "redirects user if not logged in" do
       User.create! invalid_session
-      get :index params: {}, session: invalid_session
-      expect 
+      get :index, params: {}, session: invalid_session
+      expect(response).to not (be_successful)
     end
     it "redirects user if not admin" do
-      
+      User.create! valid_session
+      get :index, params: {}, session: invalid_session
+      expect(response).to not (be_successful)
     end
     it "allows user to access if admin"
-      
+      User.create! invalid_session
+      get :index, params: {}, session: invalid_session
+      expect(response).to be_successful
     end
   end
 end
