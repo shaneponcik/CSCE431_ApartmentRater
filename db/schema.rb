@@ -33,6 +33,9 @@ ActiveRecord::Schema.define(version: 2019_11_23_223628) do
     t.string "website"
     t.string "imageURL"
     t.string "address"
+    t.decimal "bus_route"
+    t.boolean "near_campus"
+    t.string "building_near"
     t.index ["name"], name: "index_apartments_on_name", unique: true
   end
 
