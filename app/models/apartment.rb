@@ -1,6 +1,21 @@
 class Apartment < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
+  def is_close
+    close = self.near_campus
+    return close
+  end
+
+  def get_busses
+    busses = self.bus_route
+    return busses
+  end
+
+  def get_buildings
+    buildings = self.building_near
+    return buildings
+  end
+  
   def get_reviews
     reviews = Review.where(:apartment_id => self.id)
     return reviews
