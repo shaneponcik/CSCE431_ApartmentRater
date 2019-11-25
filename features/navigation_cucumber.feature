@@ -133,20 +133,52 @@ Scenario: Can edit a tag and go back
 #Scenario: Can delete a tag and go back to the same page
 
 Scenario: Accessing the metrics in the admin portal routes correctly
+  When I access the admin portal and click on View Metrics
+  Then I can see a list of metrics
+  When I go back
+  Then I should be in the admin portal
 
 Scenario: Can edit a metric and go back
+  Given I have metrics on the site
+  When I access the admin portal and click on View Metrics
+  And I click to edit
+  Then I should see I can edit a metric
+  When I go back
+  Then I can see a list of metrics
 
 #Scenario: Can delete a metric and go back to the same page
 
 Scenario: Accessing the amenities in the admin portal routes correctly
+  When I access the admin portal and click on View Amenities
+  Then I can see a list of amenities
+  When I go back
+  Then I should be in the admin portal
 
 Scenario: Can edit a amenity and go back
+  Given I have amenities on the site
+  When I access the admin portal and click on View Amenities
+  And I click to edit
+  Then I should see I can edit a amenity
+  When I go back
+  Then I can see a list of amenities
 
 #Scenario: Can delete a amenity and go back to the same page
 
 Scenario: Accessing the reviews in the admin portal routes correctly
+  When I access the admin portal
+  And I click on View Reviews
+  Then I can see a list of reviews
+  When I go back
+  Then I should be in the admin portal
 
 Scenario: Can see a review and go back in the admin portal
+  Given I have made a review
+  When I access the admin portal
+  And I click on View Reviews
+  And I click to show
+  Then I should be on the show a review page
+  When I go back
+  Then I can see a list of reviews
 
 #Scenario: Can edit a review and go back in the admin portal
 

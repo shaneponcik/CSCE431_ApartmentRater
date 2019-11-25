@@ -1,6 +1,6 @@
 When(/^I access the admin portal$/) do
   visit root_path
-  click_link('Admin Portal')
+  click_button('Admin Portal')
 end
 
 Given(/^I have several reviews added by different users$/) do

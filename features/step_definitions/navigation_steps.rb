@@ -114,3 +114,35 @@ end
 Then(/^I should see I can edit a tag$/) do
   expect(page).to have_text('Editing tag')
 end
+
+Then(/^I can see a list of metrics$/) do
+  expect(page).to have_text('Listing metrics')
+end
+
+Given(/^I have metrics on the site$/) do
+  metric = Metric.create(:name => 'Overall')
+end
+
+Then(/^I should see I can edit a metric$/) do
+  expect(page).to have_text('Editing metric')
+end
+
+Then(/^I can see a list of amenities$/) do
+  expect(page).to have_text('Listing amenities')
+end
+
+Given(/^I have amenities on the site$/) do
+  amenity = Amenity.create(:name => 'Pool')
+end
+
+Then(/^I should see I can edit a amenity$/) do
+  expect(page).to have_text('Editing amenity')
+end
+
+And(/^I click on View Reviews$/) do
+  click_link('View Reviews')
+end
+
+Then(/^I can see a list of reviews$/) do
+  expect(page).to have_text('Listing Reviews')
+end
