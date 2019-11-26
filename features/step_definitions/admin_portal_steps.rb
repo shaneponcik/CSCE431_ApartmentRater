@@ -21,7 +21,7 @@ Given(/^I have several reviews added by different users$/) do
 end
 
 When(/^I access the list of reviews$/) do
-  click_link('View Reviews')
+  click_button('Reviews')
 end
 
 Then(/^I should see a list of reviews associated with the correct user$/) do
@@ -45,7 +45,7 @@ Given(/^I have several users that are admins and non-admins$/) do
 end
 
 When(/^I access the list of users$/) do
-  click_link('View Users')
+  click_button('Users')
 end
 
 Then(/^I should see a list of user with the correct options$/) do
