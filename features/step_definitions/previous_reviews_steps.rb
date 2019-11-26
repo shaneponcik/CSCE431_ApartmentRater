@@ -30,7 +30,7 @@ Given(/^I am a user that has made reviews$/) do
 end
 
 Then(/^I should see the reviews for the current user$/) do
-  expect(page).to have_text("Review for", :minimum => 2)
+  expect(page).to have_text("review for", :minimum => 2)
   expect(page).not_to have_text("No reviews here... Why don't you go make one below ;)")
 end
 

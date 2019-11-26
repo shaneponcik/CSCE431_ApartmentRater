@@ -1,4 +1,5 @@
 - @reviews.each do |review|
+  %h3= review.title
   %h3= "Description: "
   %p= "#{review.review_text}"
   %h4= "Price(per person for unit): #{review.price}"
