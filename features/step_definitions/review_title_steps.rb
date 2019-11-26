@@ -31,10 +31,6 @@ Then(/^I should see the review in the review list$/) do
   expect(page).to have_text('Made by user1@tamu.edu')
 end
 
-When(/^I click to show$/) do
-  click_link('Show')
-end
-
 Then(/^I should see the title in the review$/) do
   expect(page).to have_text('Apartment: Apt1')
   expect(page).to have_text('Title')
