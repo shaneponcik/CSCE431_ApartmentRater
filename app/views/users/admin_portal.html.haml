@@ -1,24 +1,36 @@
-%p#notice= notice
+%body.tamu
 
-%h1= "Admin Logged In is #{current_user.email}"
+  = form_tag users_path,          :id => 'toUsers', :method => :get do |form|
+    %div
+  = form_tag apartment_list_path, :id => 'toApartments',  :method => :get do |form|
+    %div
+  = form_tag tags_path,           :id => 'toTags', :method => :get do |form|
+    %div
+  = form_tag amenities_path,      :id => 'toAmenities', :method => :get do |form|
+    %div
+  = form_tag metrics_path,        :id => 'toMetrics', :method => :get do |form|
+    %div
+  = form_tag review_list_path,    :id => 'toReviews', :method => :get do |form|
+    %div
 
-%div{:class => "container"}
-  %div{:class => "row", :style => "text-align: center"}
-    %div{:class => "col-xs-4"}
-      = render :partial => "/partials/userbutton"
-      -#%p= 'This will become the user list link'
-    %div{:class => "col-xs-4"}
-      = render :partial => "/partials/apartmentbutton"
-      -#%p= 'This will become the apartment link - currently works, but linked to the wrong view'
-    %div{:class => "col-xs-4"}
-      = render :partial => "/partials/tagbutton"
-  %div{:class => "row", :style => "text-align: center"}
-    %div{:class => "col-xs-4"}
-      = render :partial => "/partials/metricbutton"
-    %div{:class => "col-xs-4"}
-      = render :partial => "/partials/reviewsbutton"
-      -#%p= 'This should become our all review page'
-    %div{:class => "col-xs-4"}
-      = render :partial => "/partials/amenitybutton"
 
-= link_to 'Back', root_path
+
+  %p#notice= notice
+
+  %div{:class => "container", :align => "center"}
+    %div.row
+      %h1{:style => "font-size: 30;"}= "Admin Portal"
+    %div.row.center-block
+      %div.col-md-4
+        = submit_tag "Users", form: "toUsers", :class=>"adminButton"
+      %div.col-md-4
+        = submit_tag "Apartments", form: "toApartments", :class=>"adminButton"
+      %div.col-md-4
+        = submit_tag "Tags", form: "toTags", :class=>"adminButton"
+    %div.row.center-block
+      %div.col-md-4
+        = submit_tag "Metrics", form: "toMetrics", :class=>"adminButton"
+      %div.col-md-4
+        = submit_tag "Reviews", form: "toReviews", :class=>"adminButton"
+      %div.col-md-4
+        = submit_tag "Amenities", form: "toAmenities", :class=>"adminButton"
