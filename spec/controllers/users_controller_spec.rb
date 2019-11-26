@@ -22,9 +22,13 @@ RSpec.describe UsersController, type: :controller do
   describe "GET users#admin_portal" do
     it "doesn't allow non-user to access admin portal" do
       user = nil
-      expect(response).to be_successful
+      expect(response).to eq (not be_successful)
     end
     it "doesn't allow non-admin to access admin portal" do
+      user = User.create(:email => "test@tamu.edu", :password_digest => "13123")
+      expect(response).to (not be_successful)
+    end
+    it "allows admin to access admin portal" do
       user = User.create(:email => "test@tamu.edu", :password_digest => "13123")
       expect(response).to be_successful
     end
@@ -32,22 +36,22 @@ RSpec.describe UsersController, type: :controller do
   
   describe "users#admin_portal" do
     it "redirects user if not logged in" do
-      begin
-        user = User.create(:email => "", :password_digest => "")
-        user.admin_portal
-      rescue
-        expect(response).to (not be_successful)
-      end
+      user = User.create(:email => "", :password_digest => "")
+      controller = UsersController.initialize()
+      @controller.admin_portal
+      expect(response).to (not be_successful)
     end
     it "redirects user if not admin" do
       user = User.create(:email => "test@tamu.edu", :password_digest => "13123")
-      user.admin_portal
+      controller = UsersController.initialize()
+      @controller.admin_portal
       expect(response).to (not be_successful)
     end
     it "allows user to access if admin" do
       user = User.create(:email => "test@tamu.edu", :password_digest => "13123")
-      user.admin
-      user.admin_portal
+      @controller = UsersController.initialize()
+      @controller.admin
+      @controller.admin_portal
       expect(response).to be_successful
     end
   end
