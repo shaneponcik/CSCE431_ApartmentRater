@@ -152,6 +152,7 @@ class ReviewsController < ApplicationController
     @review.review_text = params['review_text']
     @review.user_id = params['user_id']
     @review.price = params['price']
+    @review.title = params['title']
 
     ActiveRecord::Base.transaction do
       @review.save
@@ -187,6 +188,7 @@ class ReviewsController < ApplicationController
     @review.review_text = params['review_text']
     @review.user_id = params['user_id']
     @review.price = params['price']
+    @review.title = params['title']
 
     ActiveRecord::Base.transaction do
       @review.save
