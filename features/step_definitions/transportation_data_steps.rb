@@ -4,7 +4,7 @@ end
 
 When(/^I leave the admin portal$/) do
   click_link('Back')
-  click_link('Back')
+  click_button('Home')
 end
 
 Then(/^I should see the transportation data$/) do
