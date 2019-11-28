@@ -37,11 +37,11 @@ RSpec.describe UsersController, type: :controller do
   describe UsersController do
     it "redirects user if not logged in" do
       user = User.create(:email => "", :password_digest => "")
-      expect(controller.admin_portal).to render_template(root_path)
+      expect(controller.admin_portal user).to render_template(root_path)
     end
     it "redirects user if not admin" do
       user = User.create(:email => "test@tamu.edu", :password_digest => "13123")
-      expect(controller.admin_portal).to render_template(root_path)
+      expect(controller.admin_portal user).to render_template(root_path)
     end
     it "allows user to access if admin" do
       user = User.create(:email => "test@tamu.edu", :password_digest => "13123")
