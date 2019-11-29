@@ -80,11 +80,11 @@ When(/^I click to access the admin portal$/) do
 end
 
 Then(/^I should be in the admin portal$/) do
-  expect(page).to have_text('Admin Logged In is')
+  expect(page).to have_text('Admin Portal')
 end
 
 And(/^I click to view Users$/) do
-  click_link('View Users')
+  click_button('Users')
 end
 
 Then(/^I should see a list of users$/) do
@@ -140,7 +140,7 @@ Then(/^I should see I can edit a amenity$/) do
 end
 
 And(/^I click on View Reviews$/) do
-  click_link('View Reviews')
+  click_button('Reviews')
 end
 
 Then(/^I can see a list of reviews$/) do
