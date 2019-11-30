@@ -5,9 +5,9 @@
       %ul
         - @amenity.errors.full_messages.each do |message|
           %li= message
-
-  .field
-    = f.label :name
-    = f.text_field :name
-  .actions
-    = f.submit 'Save'
+  .tamu
+    .field
+      = f.label :name
+      = f.text_field :name
+    .actions
+      .miscButton= f.submit 'Save'

@@ -6,34 +6,35 @@
         - @apartment.errors.full_messages.each do |message|
           %li= message
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :imageURL
-    = f.text_field :imageURL
-  .field
-    = f.label :website
-    = f.text_field :website
-  .field
-    = f.label :address
-    = f.text_field :address
-  .field
-    = f.label :description
-    = f.text_area :description
-  .field
-    = f.label :bus_route, "A&M bus routes nearby"
-    = f.text_field :bus_route
-  .field
-    = f.label "Close to campus?"
-    = f.label 'isNearCampus', 'Yes'
-    = f.radio_button :near_campus, true
-    = f.label 'notNearCampus', 'No'
-    = f.radio_button :near_campus, false
-  .field
-    = f.label "If yes:"
-    = f.label "University buildings near property"
-    = f.text_field :building_near
-
-  .actions
-    = f.submit 'Save'
+  .tamuForeground
+    .field
+      = f.label :name
+      = f.text_field :name
+    .field
+      = f.label :imageURL
+      = f.text_field :imageURL
+    .field
+      = f.label :website
+      = f.text_field :website
+    .field
+      = f.label :address
+      = f.text_field :address
+    .field
+      = f.label :description
+      = f.text_area :description
+    .field
+      = f.label :bus_route, "A&M bus routes nearby"
+      = f.text_field :bus_route
+    .field
+      = f.label "Close to campus?"
+      = f.label 'isNearCampus', 'Yes'
+      = f.radio_button :near_campus, true
+      = f.label 'notNearCampus', 'No'
+      = f.radio_button :near_campus, false
+    .field
+      = f.label "If yes:"
+      = f.label "University buildings near property"
+      = f.text_field :building_near
+  .miscButton
+    .actions
+      = f.submit 'Save'
