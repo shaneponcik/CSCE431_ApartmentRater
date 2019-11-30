@@ -1,26 +1,20 @@
 %p#notice= notice
-
-%h1 Create a New Tag
-= render 'form'
-
-%br
-
-%h1 Listing tags
-
-%table{:class => "table"}
-  %thead
-    %tr
-      %th
-      %th
-      %th
-
-  %tbody
-    - @tags.each do |tag|
+.tamu
+  %h1 Create a New Tag
+  = render 'form'
+  %br
+  %h1 Listing tags
+  %table{:class => "table"}
+    %thead
       %tr
-        %td= tag.name
-        %td= link_to 'Edit', edit_tag_path(tag)
-        %td= link_to 'Delete', tag, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'Back', admin_only_path
+        %th
+        %th
+        %th
+    %tbody
+      - @tags.each do |tag|
+        %tr
+          %td= tag.name
+          %td= link_to 'Edit', edit_tag_path(tag)
+          %td= link_to 'Delete', tag, method: :delete, data: { confirm: 'Are you sure?' }
+  %br
+.tamuForeground= link_to 'Back', admin_only_path

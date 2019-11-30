@@ -1,26 +1,26 @@
 %p#notice= notice
-%h1= "#{@review.title}"
+%h1.tamuForeground= "#{@review.title}"
 %hr/
-%h2= "Apartment: #{@review.get_apartment.name}"
-%h2= "User: #{@review.get_user.email}"
+%h2.tamuForeground= "Apartment: #{@review.get_apartment.name}"
+%h2.tamuForeground= "User: #{@review.get_user.email}"
 %hr/
-%h3= "Description: #{@review.review_text}"
-%h3= "Price(per person for unit): #{@review.price}"
+%h3.tamuForeground= "Description: #{@review.review_text}"
+%h3.tamuForeground= "Price(per person for unit): #{@review.price}"
 %hr
-%h2 Amenities
+%h2.tamuForeground Amenities
 - @review.get_amenities.each do |amenity|
   %p= "#{amenity.name}"
 %hr
-%h2 Tags
+%h2.tamuForeground Tags
 - @review.get_tags.each do |tag|
   %p= "#{tag.name}"
 %hr
-%h2 Metrics
+%h2.tamuForeground Metrics
 - @review.get_metrics.each do |metric_key, metric_value|
   %p= "#{metric_key.name}: #{metric_value}"
-= link_to 'Edit', edit_review_path(@review)
+.tamuForeground= link_to 'Edit', edit_review_path(@review)
 |
 -if flash[:back] == 'index' || flash[:edit] == 'index'
-  = link_to 'Back', reviews_path
+  .tamuForeground= link_to 'Back', reviews_path
 -else
-  = link_to 'Back', review_list_path
+  .tamuForeground= link_to 'Back', review_list_path

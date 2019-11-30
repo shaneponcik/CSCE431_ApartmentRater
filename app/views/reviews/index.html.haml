@@ -1,26 +1,26 @@
 %p#notice= notice
 
-%h1= "Reviews for " + @email
+%h1.tamuForeground= "Reviews for " + @email
 
-%p= "Here you can view your previous reviews and edit or delete them if wanted"
+%p.tamuForeground= "Here you can view your previous reviews and edit or delete them if wanted"
 
 = link_to 'New Review', new_review_path
 
-%table{:class => "table"}
-  %thead
-    %tr
-      %th{:colspan => "6"}
-  %tbody
-    - if @review.present?
-      - @review.each do |review|
-        %tr
-          %td= "#{review.title} - review for #{review.get_apartment.name}"
-          %td= link_to 'Show', review
-          %td= link_to 'Edit', edit_review_path(review)
-          %td= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' }
-    -else
-      %p= "No reviews here... Why don't you go make one below ;)"
-%br/
+.tamu
+  %table{:class => "table"}
+    %thead
+      %tr
+        %th{:colspan => "6"}
+    %tbody
+      - if @review.present?
+        - @review.each do |review|
+          %tr
+            %td= "#{review.title} - review for #{review.get_apartment.name}"
+            %td= link_to 'Show', review
+            %td= link_to 'Edit', edit_review_path(review)
+            %td= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' }
+      -else
+        %p.tamuForeground= "No reviews here... Why don't you go make one below ;)"
+  %br
 
-= link_to 'Back', root_path
-
+.tamuForeground= link_to 'Back', root_path
