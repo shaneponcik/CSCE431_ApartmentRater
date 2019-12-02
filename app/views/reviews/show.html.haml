@@ -18,9 +18,10 @@
 %h2.tamuForeground Metrics
 - @review.get_metrics.each do |metric_key, metric_value|
   %p= "#{metric_key.name}: #{metric_value}"
-.tamuForeground= link_to 'Edit', edit_review_path(@review)
-|
--if flash[:back] == 'index' || flash[:edit] == 'index'
-  .tamuForeground= link_to 'Back', reviews_path
--else
-  .tamuForeground= link_to 'Back', review_list_path
+.tamuForeground
+  = link_to 'Edit', edit_review_path(@review)
+  |
+  -if flash[:back] == 'index' || flash[:edit] == 'index'
+    = link_to 'Back', reviews_path
+  -else
+    = link_to 'Back', review_list_path

@@ -1,6 +1,6 @@
 %p#notice= notice
 
-%h1 Create a New Metric
+%h1.tamu Create a New Metric
 
 = render 'form'
 
@@ -23,4 +23,4 @@
           %td= link_to 'Edit', edit_metric_path(metric)
           %td= link_to 'Delete', metric, method: :delete, data: { confirm: 'Are you sure?' }
   %br
-  = link_to 'Back', admin_only_path
+.tamuForeground= link_to 'Back', admin_only_path

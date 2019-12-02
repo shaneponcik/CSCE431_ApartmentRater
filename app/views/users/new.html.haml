@@ -12,8 +12,6 @@
 
   = form_tag root_path, :id => 'back', :method => :get do |form|
     %div
-
-
 %div
   - if flash[:notice] != nil
     %p{class: "popup"}= flash[:notice]
