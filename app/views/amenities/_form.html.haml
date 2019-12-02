@@ -6,8 +6,13 @@
         - @amenity.errors.full_messages.each do |message|
           %li= message
   .tamu
-    .field
-      = f.label :name
-      = f.text_field :name
-    .actions
-      .miscButton= f.submit 'Save'
+    %div{:class => "container", :align => "center"}
+      %div.row
+        %h1{:style => "font-size: 30;"}= "Admin Portal"
+      %div.row.center-block
+        %div.col-md-4
+          .field
+            = f.label :name
+            = f.text_field :name
+          .actions
+            .miscButton= f.submit 'Save'

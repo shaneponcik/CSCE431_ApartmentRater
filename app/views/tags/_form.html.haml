@@ -5,11 +5,14 @@
       %ul
         - @tag.errors.full_messages.each do |message|
           %li= message
-
-  .tamuForeground
-    .field
-      = f.label :name
-      = f.text_field :name
-  .miscButton
-    .actions
-      = f.submit 'Save'
+    %div{:class => "container", :align => "center"}
+      %div.row
+        %h1{:style => "font-size: 30;"}= "Admin Portal"
+      %div.row.center-block
+        .tamuForeground
+          .field
+            = f.label :name
+            = f.text_field :name
+          .miscButton
+            .actions
+            = f.submit 'Save'
