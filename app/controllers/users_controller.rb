@@ -28,7 +28,9 @@ class UsersController < ApplicationController
     if current_user.nil?
       return redirect_to root_path, notice: 'Need to be logged in to access this page'
     elsif not current_user.is_admin
-      return redirect_to root_path, notice: 'Need to be an admin to access this page'
+      if current_user.id != params[:id].to_i
+        return redirect_to root_path, notice: 'Need to be an admin to access this page'
+      end
     end
   end
 

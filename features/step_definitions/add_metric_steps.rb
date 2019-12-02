@@ -1,7 +1,7 @@
 When(/^I access the admin portal and click on View Metrics$/) do
   visit root_path
-  click_link('Admin Portal')
-  click_link('View Metrics')
+  click_button('Admin Portal')
+  click_button('Metrics')
 end
 
 Then(/^I am on the page to add the new metric$/) do

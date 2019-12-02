@@ -1,7 +1,7 @@
 When(/^I access the admin portal and click on View Apartments$/) do
   visit root_path
-  click_link('Admin Portal')
-  click_link('View Apartments')
+  click_button('Admin Portal')
+  click_button('Apartments')
 end
 
 Then(/^I am on the page to add a new apartment$/) do

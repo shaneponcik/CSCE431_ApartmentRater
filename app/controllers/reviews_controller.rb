@@ -29,6 +29,7 @@ class ReviewsController < ApplicationController
   # GET /reviews/new
   def new
     @review = Review.new
+    @review.price = 0.0
     @route = "/reviews"
     @method = "POST"
 
@@ -69,9 +70,7 @@ class ReviewsController < ApplicationController
     end
 
     #only logged in users can create reviews
-    if current_user
-      @current_user = current_user.id
-    else
+    if not current_user
       return redirect_to root_path
     end
     #show be same above as edit's
@@ -126,9 +125,7 @@ class ReviewsController < ApplicationController
     end
 
     #only logged in users can create reviews
-    if current_user and current_user.id == @review.user_id
-      @current_user = current_user.id
-    else
+    if not (current_user and current_user.id == @review.user_id)
       return redirect_to root_path
     end
     #should be same above as new's
@@ -155,6 +152,7 @@ class ReviewsController < ApplicationController
     @review.review_text = params['review_text']
     @review.user_id = params['user_id']
     @review.price = params['price']
+    @review.title = params['title']
 
     ActiveRecord::Base.transaction do
       @review.save
@@ -190,6 +188,7 @@ class ReviewsController < ApplicationController
     @review.review_text = params['review_text']
     @review.user_id = params['user_id']
     @review.price = params['price']
+    @review.title = params['title']
 
     ActiveRecord::Base.transaction do
       @review.save

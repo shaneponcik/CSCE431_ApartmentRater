@@ -14,5 +14,59 @@
  *= require_self
  */
 
-@import "bootstrap-sprockets";
 @import "bootstrap";
+
+.tamu{
+  background: #500000;
+  color: white;
+  margin: 0px;
+}
+
+.tamuForeground{
+  padding: 10px;
+  background: #E8E4DB;
+  color: #500000;
+  margin: 0px;
+}
+
+.navbarItem{
+  padding: 5px;
+  font-size: large;
+  border-radius: 10px;
+  background: #500000;
+  margin: 5px;
+  color: white;
+}
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
+
+.navbarButton{
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  background: #50000000;
+  border-color: #50000000;
+}
+
+.navbar{
+  vertical-align: middle;
+  background-color: #E8E4DB;
+  margin: 0px;
+  border-radius: 0;
+}
+
+.adminButton{
+  background: #E8E4DB;
+  color: #500000;
+  margin: 50px auto;
+  border-radius: 24px;
+  width: 80%;
+  height: 100px;
+  font-size: large;
+  border: 0px;
+}
+

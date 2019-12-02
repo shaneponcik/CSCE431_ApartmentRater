@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_12_191849) do
+ActiveRecord::Schema.define(version: 2019_11_23_223628) do
 
   create_table "admin_tables", force: :cascade do |t|
     t.integer "user_id"
@@ -33,6 +33,9 @@ ActiveRecord::Schema.define(version: 2019_11_12_191849) do
     t.string "website"
     t.string "imageURL"
     t.string "address"
+    t.decimal "bus_route"
+    t.boolean "near_campus"
+    t.string "building_near"
     t.index ["name"], name: "index_apartments_on_name", unique: true
   end
 
@@ -77,6 +80,7 @@ ActiveRecord::Schema.define(version: 2019_11_12_191849) do
     t.decimal "price", default: "0.0"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "title"
     t.index ["apartment_id"], name: "index_reviews_on_apartment_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end

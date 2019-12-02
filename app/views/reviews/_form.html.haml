@@ -1,10 +1,14 @@
 = form_tag(@route, method: @method) do
-  =hidden_field_tag :user_id, @current_user
+  =hidden_field_tag :user_id, @current_user.id
 
+  =label_tag(:title, "Title")
+  =text_field_tag(:title, @review.title)
+  %br
   =label_tag(:apartment_id, "Select Apartment:")
   =select_tag(:apartment_id, options_from_collection_for_select(@apartments, "id", "name", @review.apartment_id))
   %br
   =label_tag(:review_text, "Insert Review Text:")
+  %br
   =text_area_tag(:review_text, @review.review_text)
   %br
   =label_tag(:price, "Price paid(per person):")

@@ -14,7 +14,7 @@
     - if @review.present?
       - @review.each do |review|
         %tr
-          %td= "Review for #{review.get_apartment.name}"
+          %td= "#{review.title} - review for #{review.get_apartment.name}"
           %td= link_to 'Show', review
           %td= link_to 'Edit', edit_review_path(review)
           %td= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' }

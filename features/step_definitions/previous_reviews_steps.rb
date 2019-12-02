@@ -3,7 +3,7 @@ When(/^I am on the homepage$/) do
 end
 
 And(/^I click on Sign Up$/) do
-  click_link('Sign Up')
+  click_button('Sign Up')
 end
 
 And(/^I fill out the form and submit it$/) do
@@ -15,7 +15,7 @@ end
 
 
 And(/^I go back to the homepage$/) do
-  click_link('Back')
+  click_button('Home')
 end
 
 When(/^I click on Show Previous Reviews Made$/) do
@@ -30,7 +30,7 @@ Given(/^I am a user that has made reviews$/) do
 end
 
 Then(/^I should see the reviews for the current user$/) do
-  expect(page).to have_text("Review for", :minimum => 2)
+  expect(page).to have_text("review for", :minimum => 2)
   expect(page).not_to have_text("No reviews here... Why don't you go make one below ;)")
 end
 
@@ -43,7 +43,7 @@ Then(/^I should see a message that says there are no reviews$/) do
 end
 
 When(/^I have logged out$/) do
-  click_link('Log Out')
+  click_button('Log Out')
 end
 
 Then(/^I should not see the link for the previous reviews$/) do

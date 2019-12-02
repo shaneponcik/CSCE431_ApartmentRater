@@ -5,8 +5,8 @@ end
 
 When(/^I access the admin portal and click on View Amenities$/) do
   visit root_path
-  click_link('Admin Portal')
-  click_link('View Amenities')
+  click_button('Admin Portal')
+  click_button('Amenities')
 end
 
 Then(/^I am on the page to add the new amenity$/) do
