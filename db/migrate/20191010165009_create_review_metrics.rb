@@ -6,5 +6,8 @@ class CreateReviewMetrics < ActiveRecord::Migration[6.0]
       t.integer :rating
       t.timestamps
     end
+
+    add_foreign_key :review_metrics, :reviews, on_delete: :cascade
+    add_foreign_key :review_metrics, :metrics, on_delete: :cascade
   end
 end
