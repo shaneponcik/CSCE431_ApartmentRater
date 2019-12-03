@@ -1,6 +1,9 @@
+=render :partial => "partials/header"
+
+
 %p#notice= notice
 
-%h1= "Apartment: #{@apartment.name}"
+%h1= "Property: #{@apartment.name}"
 %h3= "Average rating: #{@apartment.average_rating} from #{@apartment.review_count} review(s)"
 %h3= "Pricing: average = $#{@apartment.get_average_price}, min = $#{@apartment.get_min_price}, max = $#{@apartment.get_max_price}"
 - if @apartment.is_close == true
@@ -12,8 +15,14 @@
   %h4= "No buses nearby"
 -else
   %h4= "A&M bus routes nearby: #{@apartment.get_busses}"
-
-%hr
+%h4= "Top tags:"
+-@apartment.get_tags.each do |tag, count|
+  %div.tag{ :style => "float:left;padding: 0px 5px;border-radius: 25px; border: 2px solid #73AD21;margin-left: 2px;" }
+    ="#{tag} #{count}"
+%hr/
+%h2= "Reviews"
+%hr/
+%hr/
 
 =render :partial => "apartments/apartmentreviews"
 
