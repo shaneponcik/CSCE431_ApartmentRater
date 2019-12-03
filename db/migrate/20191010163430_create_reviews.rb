@@ -7,5 +7,8 @@ class CreateReviews < ActiveRecord::Migration[6.0]
       t.decimal :price, :default => 0.00
       t.timestamps
     end
+
+    add_foreign_key :reviews, :apartments, on_delete: :cascade
+    add_foreign_key :reviews, :users, on_delete: :cascade
   end
 end
