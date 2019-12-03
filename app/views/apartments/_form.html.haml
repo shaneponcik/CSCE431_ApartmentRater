@@ -7,8 +7,6 @@
           %li= message
   .tamuForeground
     %div{:class => "container", :align => "center"}
-      %div.row
-        %h1{:style => "font-size: 30;"}= "Admin Portal"
       %div.row.center-block
         %div.col-md-4
           .field
@@ -17,15 +15,19 @@
           .field
             = f.label :imageURL
             = f.text_field :imageURL
+        %div.col-md-4
           .field
             = f.label :website
             = f.text_field :website
           .field
             = f.label :address
             = f.text_field :address
+        %div.col-md-4
           .field
             = f.label :description
             = f.text_area :description
+      %div.row.center-block
+        %div.col-md-4
           .field
             = f.label :bus_route, "A&M bus routes nearby"
             = f.text_field :bus_route
@@ -35,9 +37,9 @@
             = f.radio_button :near_campus, true
             = f.label 'notNearCampus', 'No'
             = f.radio_button :near_campus, false
+        %div.col-md-4
           .field
-            = f.label "If yes:"
-            = f.label "University buildings near property"
+            = f.label "If yes: University buildings near property"
             = f.text_field :building_near
           .miscButton
             .actions
