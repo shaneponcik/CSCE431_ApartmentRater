@@ -18,10 +18,12 @@
       %div
         = f.password_field :password
   %div#form
-    .field
-      %div
-        = f.label "Verify Password"
-      %div
-        = f.password_field :vPassword
-  .actions
-    = f.submit 'Create Account'
+    .tamuForeground
+      .field
+        %div
+          = f.label "Verify Password"
+        %div
+          = f.password_field :vPassword
+    .miscButton
+      .actions
+        = f.submit 'Create Account'

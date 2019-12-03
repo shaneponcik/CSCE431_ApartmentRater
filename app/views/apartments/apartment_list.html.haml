@@ -1,14 +1,14 @@
 %p#notice= notice
 
-%h1.tamuForeground Create a New Apartment
+%h1.tamu Create a New Apartment
 
 = render 'form'
 
-%br.tamu
+%br.tamuForeground
 
-%h1.tamuForeground Listing Apartments
+%h1.tamu Listing Apartments
 
-.tamu
+.tamuForeground
   %table{:class => "table"}
     %thead
       %th
@@ -28,4 +28,4 @@
         %tr
           %td{:colspan => "5"}= "Description: #{apartment.description}"
   %br
-.tamuForeground= link_to 'Back', admin_only_path
+.tamu= link_to 'Back', admin_only_path

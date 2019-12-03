@@ -1,10 +1,10 @@
 %p#notice= notice
 
-%h1.tamuForeground= "Reviews for " + @email
+%h1.tamu= "Reviews for " + @email
 
-%p.tamuForeground= "Here you can view your previous reviews and edit or delete them if wanted"
+%p.tamu= "Here you can view your previous reviews and edit or delete them if wanted"
 
-= link_to 'New Review', new_review_path
+.tamuForeground= link_to 'New Review', new_review_path
 
 .tamu
   %table{:class => "table"}
@@ -23,4 +23,4 @@
         %p.tamuForeground= "No reviews here... Why don't you go make one below ;)"
   %br
 
-.tamuForeground= link_to 'Back', root_path
+.tamu= link_to 'Back', root_path

@@ -1,9 +1,10 @@
 %p#notice= notice
-.tamu
-  %h1 Create a New Tag
-  = render 'form'
-  %br
-  %h1 Listing tags
+
+%h1.tamuForeground Create a New Tag
+= render 'form'
+%br
+%h1.tamuForeground Listing tags
+.tamuForeground
   %table{:class => "table"}
     %thead
       %tr
@@ -17,4 +18,4 @@
           %td= link_to 'Edit', edit_tag_path(tag)
           %td= link_to 'Delete', tag, method: :delete, data: { confirm: 'Are you sure?' }
   %br
-.tamuForeground= link_to 'Back', admin_only_path
+.tamu= link_to 'Back', admin_only_path

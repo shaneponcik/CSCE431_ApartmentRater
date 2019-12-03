@@ -1,20 +1,20 @@
 %p#notice= notice
 
-%h1 Listing Reviews
+%h1.tamu Listing Reviews
 
-%table{:class => "table"}
-  %thead
-    %th
-    %th
-    %th
+.tamuForeground
+  %table{:class => "table"}
+    %thead
+      %th
+      %th
+      %th
 
-  %tbody
-    -@reviews.each do |review|
-      %tr
-        %td= "#{review.title} - review for #{review.get_apartment.name}"
-        %td= "Made by #{review.get_user.email}"
-        %td= link_to 'Show', review
-        %td= link_to 'Edit', edit_review_path(review)
-        %td= link_to 'Delete', review, method: :delete, data: {confirm: 'Are you sure?'}
-
-.tamuForeground= link_to 'Back', admin_only_path
+    %tbody
+      -@reviews.each do |review|
+        %tr
+          %td= "#{review.title} - review for #{review.get_apartment.name}"
+          %td= "Made by #{review.get_user.email}"
+          %td= link_to 'Show', review
+          %td= link_to 'Edit', edit_review_path(review)
+          %td= link_to 'Delete', review, method: :delete, data: {confirm: 'Are you sure?'}
+.tamu= link_to 'Back', admin_only_path
