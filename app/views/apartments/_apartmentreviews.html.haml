@@ -1,5 +1,8 @@
+
 - @reviews.each do |review|
-  %h3= review.title
+
+  %h2= review.title
+  %hr/
   %h3= "Description: "
   %p= "#{review.review_text}"
   %h4= "Price(per person for unit): #{review.price}"
@@ -13,7 +16,7 @@
       ="#{amenity.name}"
   %br
 
-  %h4 Tags:
+  %h4 Tags
   - review.get_tags.each do |tag|
     %div.tag{ :style => "float:left;padding: 0px 5px;border-radius: 25px; border: 2px solid #73AD21;margin-left: 2px;" }
       ="#{tag.name}"
@@ -26,4 +29,5 @@
         ="#{metric_key.name}: #{metric_value}"
   %br
 
+  %hr
   %hr
