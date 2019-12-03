@@ -11,9 +11,9 @@
     %h4= "Not close to campus"
   -if @apartment.get_busses == 0 or @apartment.get_busses.nil?
     %h4= "No buses nearby"
--else
-  %h4= "A&M bus routes nearby: #{@apartment.get_busses}"
-  %hr
+  -else
+    %h4= "A&M bus routes nearby: #{@apartment.get_busses}"
+    %hr
 
 =render :partial => "apartments/apartmentreviews"
 
