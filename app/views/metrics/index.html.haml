@@ -1,27 +1,26 @@
 %p#notice= notice
 
-%h1 Create a New Metric
+%h1.tamu Create a New Metric
 
 = render 'form'
 
 %br
 
-%h1 Listing metrics
+%h1.tamu Listing metrics
 
-%table{:class => "table"}
-  %thead
-    %tr
-      %th
-      %th
-      %th
-
-  %tbody
-    - @metrics.each do |metric|
+.tamu
+  %table{:class => "table"}
+    %thead
       %tr
-        %td= metric.name
-        %td= link_to 'Edit', edit_metric_path(metric)
-        %td= link_to 'Delete', metric, method: :delete, data: { confirm: 'Are you sure?' }
+        %th
+        %th
+        %th
 
-%br
-
-= link_to 'Back', admin_only_path
+    %tbody
+      - @metrics.each do |metric|
+        %tr
+          %td= metric.name
+          %td= link_to 'Edit', edit_metric_path(metric)
+          %td= link_to 'Delete', metric, method: :delete, data: { confirm: 'Are you sure?' }
+  %br
+.tamuForeground= link_to 'Back', admin_only_path

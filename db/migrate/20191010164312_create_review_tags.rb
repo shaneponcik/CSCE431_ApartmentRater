@@ -5,5 +5,8 @@ class CreateReviewTags < ActiveRecord::Migration[6.0]
       t.references :tag, index:true, foreign_key: true
       t.timestamps
     end
+
+    add_foreign_key :review_tags, :reviews, on_delete: :cascade
+    add_foreign_key :review_tags, :tags, on_delete: :cascade
   end
 end

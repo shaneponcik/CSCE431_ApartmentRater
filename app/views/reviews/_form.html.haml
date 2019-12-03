@@ -2,14 +2,14 @@
   =hidden_field_tag :user_id, @current_user.id
 
   =label_tag(:title, "Title")
-  =text_field_tag(:title, @review.title)
+  =text_field_tag(:title, @review.title, :required => true)
   %br
   =label_tag(:apartment_id, "Select Apartment:")
   =select_tag(:apartment_id, options_from_collection_for_select(@apartments, "id", "name", @review.apartment_id))
   %br
   =label_tag(:review_text, "Insert Review Text:")
   %br
-  =text_area_tag(:review_text, @review.review_text)
+  =text_area_tag(:review_text, @review.review_text, :required => true)
   %br
   =label_tag(:price, "Price paid(per person):")
   =number_field_tag(:price, @review.price, min: 1, max: 5000)
@@ -30,7 +30,3 @@
     =select_tag("metric_#{metric.id}", options_for_select((1..5).step(1), @review_metrics[metric.id]))
     %br
   =submit_tag("Submit Review")
-
-
-
-

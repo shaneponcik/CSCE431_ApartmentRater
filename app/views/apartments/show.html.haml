@@ -3,30 +3,32 @@
 
 %p#notice= notice
 
-%h1= "Property: #{@apartment.name}"
-%h3= "Average rating: #{@apartment.average_rating} from #{@apartment.review_count} review(s)"
-%h3= "Pricing: average = $#{@apartment.get_average_price}, min = $#{@apartment.get_min_price}, max = $#{@apartment.get_max_price}"
-- if @apartment.is_close == true
-  %h4= "Close to campus"
-  %h4= "Nearby on-campus buildings: #{@apartment.get_buildings}"
-- else
-  %h4= "Not close to campus"
--if @apartment.get_busses == 0 or @apartment.get_busses.nil?
-  %h4= "No buses nearby"
--else
-  %h4= "A&M bus routes nearby: #{@apartment.get_busses}"
-%h4= "Top tags:"
--@apartment.get_tags.each do |tag, count|
-  %div.tag{ :style => "float:left;padding: 0px 5px;border-radius: 25px; border: 2px solid #73AD21;margin-left: 2px;" }
-    ="#{tag} #{count}"
-%hr/
-%h2= "Reviews"
+%h1.tamuForeground= "Property: #{@apartment.name}"
+.tamu
+  %h3= "Average rating: #{@apartment.average_rating} from #{@apartment.review_count} review(s)"
+  %h3= "Pricing: average = $#{@apartment.get_average_price}, min = $#{@apartment.get_min_price}, max = $#{@apartment.get_max_price}"
+  - if @apartment.is_close == true
+    %h4= "Close to campus"
+    %h4= "Nearby on-campus buildings: #{@apartment.get_buildings}"
+  - else
+    %h4= "Not close to campus"
+  -if @apartment.get_busses == 0 or @apartment.get_busses.nil?
+    %h4= "No buses nearby"
+  -else
+    %h4= "A&M bus routes nearby: #{@apartment.get_busses}"
+  %h4= "Top tags:"
+  -@apartment.get_tags.each do |tag, count|
+    %div.tag{ :style => "float:left;padding: 0px 5px;border-radius: 25px; border: 2px solid #73AD21;margin-left: 2px;" }
+      ="#{tag} #{count}"
+  %hr/
+%h2.tamuForeground= "Reviews"
 %hr/
 %hr/
 
 =render :partial => "apartments/apartmentreviews"
 
--if flash[:back] == 'index'
-  = link_to 'Back', root_path
--else
-  = link_to 'Back', apartment_list_path
+.tamu
+  -if flash[:back] == 'index'
+    = link_to 'Back', root_path
+  -else
+    = link_to 'Back', apartment_list_path
