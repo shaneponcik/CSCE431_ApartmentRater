@@ -1,26 +1,23 @@
 %p#notice= notice
 
-%h1 Create a New Amenity
+%h1.tamu Create a New Amenity
 
 = render "form"
 
-%h1 Listing amenities
+%h1.tamu Listing amenities
 
-%table{:class => "table"}
-  %thead
-    %tr
-      %th
-      %th
-      %th
-      %th
-
-  %tbody
-    - @amenities.each do |amenity|
+.tamuForeground
+  %table{:class => "table"}
+    %thead
       %tr
-        %td= amenity.name
-        %td= link_to 'Edit', edit_amenity_path(amenity)
-        %td= link_to 'Delete', amenity, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'Back', admin_only_path
+        %th
+        %th
+        %th
+        %th
+    %tbody
+      - @amenities.each do |amenity|
+        %tr
+          %td= amenity.name
+          %td= link_to 'Edit', edit_amenity_path(amenity)
+          %td= link_to 'Delete', amenity, method: :delete, data: { confirm: 'Are you sure?' }
+.tamu= link_to 'Back', admin_only_path
