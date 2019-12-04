@@ -1,6 +1,6 @@
 %div.container
 - @reviews.each do |review|
-  %div.row
+  %div.row{:style=> "width:90%"}
     %div.col-xs-4
       %h3= "Title: #{review.title}"
       %h4= "Price / Person: $#{review.price}"
