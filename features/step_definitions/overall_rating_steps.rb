@@ -19,7 +19,7 @@ When(/^I click to see an individual apartment$/) do
 end
 
 Then(/^I should see a review with an overall rating$/) do
-  expect(page).to have_text('Overall Rating: 5')
+  expect(page).to have_text('Rating: 5')
 end
 
 When(/^I make a review with the overall metric$/) do
@@ -33,6 +33,6 @@ And(/^I navigate back to the homepage$/) do
 end
 
 And(/^I should see two reviews with an overall rating$/) do
-  expect(page).to have_text('Overall Rating: 5')
-  expect(page).to have_text('Overall Rating: 1')
+  expect(page).to have_text('Rating: 5')
+  expect(page).to have_text('Rating: 1')
 end
