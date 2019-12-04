@@ -1,24 +1,56 @@
-%p#notice= notice
+%body.tamu
+  %p#notice= notice
 
-%h1.tamuForeground= "Apartment: #{@apartment.name}"
-.tamu
-  %h3= "Average rating: #{@apartment.average_rating} from #{@apartment.review_count} review(s)"
-  %h3= "Pricing: average = $#{@apartment.get_average_price}, min = $#{@apartment.get_min_price}, max = $#{@apartment.get_max_price}"
-  - if @apartment.is_close == true
-    %h4= "Close to campus"
-    %h4= "Nearby on-campus buildings: #{@apartment.get_buildings}"
-  - else
-    %h4= "Not close to campus"
-  -if @apartment.get_busses == 0 or @apartment.get_busses.nil?
-    %h4= "No buses nearby"
-  -else
-    %h4= "A&M bus routes nearby: #{@apartment.get_busses}"
-  %hr
+  %h1.tamu.marginHeader{:style =>"margin: 0 10px;float:left;padding-right:10px;font-size:xx-large"}= "#{@apartment.name}"
+  %div= render 'rating', apartment: @apartment
+  .tamuForeground
+    %div.container{:style => "width: 100%"}
+      %div.row
+      %div.col-xs-3
+        %img{:src => @apartment.imageURL, :class=>"img-thumbnail" }
+      %div.col-xs-4
+        %strong Website:
+        %a{ :href => "#{@apartment.website}"}
+          %p= "#{@apartment.website}"
+        %p{:style => "display:block"}
+        %strong Pricing:
+        %p= "Average: $#{@apartment.get_average_price}"
+        %p= "Range: $#{@apartment.get_min_price} - $#{@apartment.get_max_price}"
+        %strong Address:
+        %p= "#{@apartment.address}"
+        %strong Proximity:
+        - if @apartment.is_close == true
+          %p= "Close to campus"
+          %p= "Nearby on-campus buildings: #{@apartment.get_buildings}"
+        - else
+          %p= "Not close to campus"
 
-=render :partial => "apartments/apartmentreviews"
+      %div.col-xs-5
+        %strong Description:
+        %p= "#{@apartment.description}"
+        %strong Bus Routes:
+        -if @apartment.get_busses == 0 or @apartment.get_busses.nil?
+          %p= "No buses nearby"
+        -else
+          %p= "A&M bus routes nearby: #{@apartment.get_busses}"
+        %div.row
+          %strong{ :style => "margin: auto auto auto 15px; float:left; padding: 2px 0px 4px 0px;" } Tags:
+          -@apartment.get_tags.each do |tag, count|
+            %div.tag{ :style => "float:left;padding: 0px 5px;border-radius: 25px; border: 2px solid #73AD21;margin-left: 2px;" }
+              ="#{tag} #{count}"
+        %div.row
+          %strong{ :style => "margin: auto auto auto 15px; float:left; padding: 2px 0px 4px 0px;" } Amenities:
+          -@apartment.get_amenities.each do |tag, count|
+            %div.tag{ :style => "float:left;padding: 0px 5px;border-radius: 25px; border: 2px solid #0000ff;margin-left: 2px;" }
+              ="#{tag} #{count}"
 
-.tamu
-  -if flash[:back] == 'index'
-    = link_to 'Back', root_path
-  -else
-    = link_to 'Back', apartment_list_path
+
+  %h2.tamu.marginHeader Reviews
+  %div.tamuForeground
+    =render :partial => "apartments/apartmentreviews"
+
+  .tamu
+    -if flash[:back] == 'index'
+      = link_to 'Back', root_path
+    -else
+      = link_to 'Back', apartment_list_path
