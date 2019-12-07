@@ -22,7 +22,7 @@ And(/^I click to access an apartment$/) do
 end
 
 Then(/^I should see a title for the apartment$/) do
-  expect(page).to have_text('Apartment: Apt1')
+  expect(page).to have_text('Apt1')
   expect(page).to have_text('Title')
 end
 
