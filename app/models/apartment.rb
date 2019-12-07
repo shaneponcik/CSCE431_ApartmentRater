@@ -15,7 +15,7 @@ class Apartment < ApplicationRecord
     buildings = self.building_near
     return buildings
   end
-  
+
   def get_reviews
     reviews = Review.where(:apartment_id => self.id)
     return reviews
@@ -46,10 +46,19 @@ class Apartment < ApplicationRecord
 
   def get_tags
     hash = {}
-
     get_reviews.each do |review|
       review.get_tags.each do |tag|
           hash[tag.name] = (hash[tag.name] || 0) + 1
+      end
+    end
+    return hash
+  end
+
+  def get_amenities
+    hash = {}
+    get_reviews.each do |review|
+      review.get_amenities.each do |amen|
+          hash[amen.name] = (hash[amen.name] || 0) + 1
       end
     end
     return hash
