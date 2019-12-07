@@ -1,3 +1,4 @@
-%h1.tamuForeground New Apartment
-= render 'form', apartment: @apartment
-.tamu= link_to 'Back', apartments_path
+%body.tamu
+  %h1 New Apartment
+  = render 'form', apartment: @apartment
+  .tamuForeground= link_to 'Back', apartments_path

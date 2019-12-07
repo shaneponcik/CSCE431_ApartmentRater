@@ -1,13 +1,12 @@
-%p#notice= notice
-
-%p
-  %b Email:
-  = @user.email
-%p
-  %b Password:
-  = @user.password
-
-.tamu
-  = link_to 'Edit', edit_user_path(@user)
-  \|
-  = link_to 'Back', root_path
+%body.tamu
+  %p#notice= notice
+  %p
+    %b Email:
+    = @user.email
+  %p
+    %b Password:
+    = @user.password
+  .tamuForeground
+    = link_to 'Edit', edit_user_path(@user)
+    \|
+    = link_to 'Back', root_path
