@@ -1,18 +1,18 @@
-= form_for @tag do |f|
-  - if @tag.errors.any?
-    #error_explanation
-      %h2.tamu= "#{pluralize(@tag.errors.count, "error")} prohibited this tag from being saved:"
-      %ul
-        - @tag.errors.full_messages.each do |message|
-          %li= message
-    %div{:class => "container", :align => "center"}
-      %div.row
-        %h1{:style => "font-size: 30;"}= "Admin Portal"
-      %div.row.center-block
-        .tamuForeground
-          .field
-            = f.label :name
-            = f.text_field :name
-          .miscButton
+%body.tamu
+  = form_for @tag do |f|
+    - if @tag.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@tag.errors.count, "error")} prohibited this tag from being saved:"
+        %ul
+          - @tag.errors.full_messages.each do |message|
+            %li= message
+    .tamuForeground
+      %div{:class => "container", :align => "center"}
+        %div.row.center-block
+          %div.col-md-4
+            .field
+              = f.label :name
+              = f.text_field :name
+          %div.col-md-4
             .actions
-            = f.submit 'Save'
+              .miscButton= f.submit 'Save'
