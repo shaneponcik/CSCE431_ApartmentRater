@@ -68,7 +68,7 @@ When(/^I access the apartment$/) do
 end
 
 Then(/^I should see I am on the apartment page$/) do
-  expect(page).to have_text('Apartment: Apt1')
+  expect(page).to have_text('Apt1')
 end
 
 When(/^I click the back button$/) do

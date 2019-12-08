@@ -290,7 +290,7 @@ DEPENDENCIES
   haml-rails (~> 2.0)
   jbuilder (~> 2.7)
   pg
-  puma (~> 3.11)
+  puma (~> 3.12)
   rails (~> 6.0.0)
   rspec
   rspec-rails
