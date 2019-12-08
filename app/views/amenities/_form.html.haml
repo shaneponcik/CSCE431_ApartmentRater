@@ -1,19 +1,18 @@
-= form_for @amenity do |f|
-  - if @amenity.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@amenity.errors.count, "error")} prohibited this amenity from being saved:"
-      %ul
-        - @amenity.errors.full_messages.each do |message|
-          %li= message
-  .tamuForeground
-    %div{:class => "container", :align => "center"}
-      %div.row
-        %h1{:style => "font-size: 30;"}= "Admin Portal"
-      %div.row.center-block
-        %div.col-md-4
-          .field
-            = f.label :name
-            = f.text_field :name
-        %div.col-md-4
-          .actions
-            .miscButton= f.submit 'Save'
+%body.tamu
+  = form_for @amenity do |f|
+    - if @amenity.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@amenity.errors.count, "error")} prohibited this amenity from being saved:"
+        %ul
+          - @amenity.errors.full_messages.each do |message|
+            %li= message
+    .tamuForeground
+      %div{:class => "container", :align => "center"}
+        %div.row.center-block
+          %div.col-md-4
+            .field
+              = f.label :name
+              = f.text_field :name
+          %div.col-md-4
+            .actions
+              .miscButton= f.submit 'Save'

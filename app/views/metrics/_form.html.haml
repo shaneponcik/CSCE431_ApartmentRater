@@ -5,10 +5,9 @@
       %ul
         - @metric.errors.full_messages.each do |message|
           %li= message
-  .tamu
-    .field
-      = f.label :name
-      = f.text_field :name
+  .field
+    = f.label :name
+    = f.text_field :name
   .miscButton
     .actions
       = f.submit 'Save'
