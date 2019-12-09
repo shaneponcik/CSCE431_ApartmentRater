@@ -13,9 +13,10 @@
         = render :partial => "/partials/showpreviousreviews"
     %div{:class => "row", :style => "text-align: center"}
       %div.col-xs-4
-      %div.col-xs-4
-        -if current_user
-          = link_to 'Become Admin', add_admin_path(id: current_user.id)
+      -# For adding first admin
+      -# %div.col-xs-4
+      -#   -if current_user
+      -#     = link_to 'Become Admin', add_admin_path(id: current_user.id)
       %div.col-xs-4
 
 %hr

@@ -1,13 +1,14 @@
-= form_for @metric do |f|
-  - if @metric.errors.any?
-    #error_explanation
-      %h2.tamuForeground= "#{pluralize(@metric.errors.count, "error")} prohibited this metric from being saved:"
-      %ul
-        - @metric.errors.full_messages.each do |message|
-          %li= message
-  .field
-    = f.label :name
-    = f.text_field :name
-  .miscButton
-    .actions
-      = f.submit 'Save'
+.tamuForeground
+  = form_for @metric do |f|
+    - if @metric.errors.any?
+      #error_explanation
+        %h2.tamuForeground= "#{pluralize(@metric.errors.count, "error")} prohibited this metric from being saved:"
+        %ul
+          - @metric.errors.full_messages.each do |message|
+            %li= message
+    .field
+      = f.label :name
+      = f.text_field :name
+    .miscButton
+      .actions
+        = f.submit 'Save'
