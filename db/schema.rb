@@ -99,22 +99,13 @@ ActiveRecord::Schema.define(version: 2019_11_23_223628) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key "admin_tables", "users"
   add_foreign_key "admin_tables", "users", on_delete: :cascade
-  add_foreign_key "review_amenities", "amenities"
   add_foreign_key "review_amenities", "amenities", on_delete: :cascade
-  add_foreign_key "review_amenities", "reviews"
   add_foreign_key "review_amenities", "reviews", on_delete: :cascade
-  add_foreign_key "review_metrics", "metrics"
   add_foreign_key "review_metrics", "metrics", on_delete: :cascade
-  add_foreign_key "review_metrics", "reviews"
   add_foreign_key "review_metrics", "reviews", on_delete: :cascade
-  add_foreign_key "review_tags", "reviews"
   add_foreign_key "review_tags", "reviews", on_delete: :cascade
-  add_foreign_key "review_tags", "tags"
   add_foreign_key "review_tags", "tags", on_delete: :cascade
-  add_foreign_key "reviews", "apartments"
   add_foreign_key "reviews", "apartments", on_delete: :cascade
-  add_foreign_key "reviews", "users"
   add_foreign_key "reviews", "users", on_delete: :cascade
 end
