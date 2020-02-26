@@ -1,3 +1,4 @@
+
 %body.tamu
   %p#notice= notice
 
@@ -43,12 +44,10 @@
           -@apartment.get_amenities.each do |tag, count|
             %div.tag{ :style => "float:left;padding: 0px 5px;border-radius: 25px; border: 2px solid #0000ff;margin-left: 2px;" }
               ="#{tag} #{count}"
-
-
+              
   %h2.tamu.marginHeader Reviews
   %div.tamuForeground
     =render :partial => "apartments/apartmentreviews"
-
   .tamu
     -if flash[:back] == 'index'
       = link_to 'Back', root_path
